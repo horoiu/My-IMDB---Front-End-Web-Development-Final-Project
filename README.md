@@ -21,11 +21,11 @@ git checkout
 
 If sometbody modified something: 
 
-git fetch --all
+git pull --all
 
 After that, if your code is working:
 
-git add
+git add .
 
 git status
 
