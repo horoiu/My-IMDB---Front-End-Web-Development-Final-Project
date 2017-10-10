@@ -31,6 +31,10 @@ window.addEventListener("load", function() {
         function intuitiveSearch(e){
             var suggest = document.getElementById("placeholder");
             suggest.addEventListener("click", suggestedResult);
+            // var mouseDeleteCheck = suggest.innerHTML.slice(0,suggest.innerHTML-1);
+            // if (mouseDeleteCheck.length > precog.length) {
+            //     precog = suggest.innerHTML;
+            // }
             if (event.key === "Enter") { 
                 startSearch();
                  /*not working for mouse select/overwrite */
@@ -58,8 +62,8 @@ window.addEventListener("load", function() {
                     }
                 }
             }
-            // console.log("***" + precog + "****");
-            // console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
+            console.log("***" + precog + "****");
+            console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
        }
     }
     
