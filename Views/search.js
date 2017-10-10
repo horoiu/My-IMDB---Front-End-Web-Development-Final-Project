@@ -45,6 +45,9 @@ window.addEventListener("load", function() {
                         suggest.innerHTML = responseList[i].Title;
                         i=responseList.length;   
                     }
+                    else {
+                        suggest.innerHTML = "";
+                    }
                 }
             }
             function suggestedResult(e) {
