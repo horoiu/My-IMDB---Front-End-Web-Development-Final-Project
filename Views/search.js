@@ -5,7 +5,7 @@ window.addEventListener("load", function() {
     // searchInput.addEventListener("enter", searchMovie);
     // searchBtn.addEventListener("click", searchMovie);
     var allMovies = new DataBase();
-    allMovies.getMovies().then(doStuff);
+    allMovies.getMovies().then(doStuff).catch(function(error){console.log("Data base error: " + error)});
     function doStuff(response) {
         // console.log(response);
         var responseList = response.moviesList;
@@ -15,17 +15,23 @@ window.addEventListener("load", function() {
         searchBtn.addEventListener("click", startSearch);
         searchInput.addEventListener("keydown", intuitiveSearch);
         function startSearch() {
+            var found = false;
             searchMovie = searchInput.value;
             for (var i=0; i<responseList.length; i++) {
                 var currentMovie = responseList[i];
                 if (currentMovie.Title.toLowerCase().includes(searchMovie)) {
                     console.log(currentMovie);
+                    found = true;
                 }
+            }
+            if (!found) {
+                console.log("No movies match your search");
             }
         }
         function intuitiveSearch(e){
             var suggest = document.getElementById("placeholder");
-            if (event.key === "Enter") { /* || searchBtn clicked */
+            suggest.addEventListener("click", suggestedResult);
+            if (event.key === "Enter") { 
                 startSearch();
                  /*not working for mouse select/overwrite */
             } else if (event.key === "Backspace") {
@@ -37,11 +43,20 @@ window.addEventListener("load", function() {
                 for (var i=0; i<responseList.length; i++) {
                     if (responseList[i].Title.toLowerCase().includes(precog)) {    
                         suggest.innerHTML = responseList[i].Title;
-                        i=responseList.length;
+                        i=responseList.length;   
                     }
                 }
             }
-            console.log(precog);
+            function suggestedResult(e) {
+                var title = suggest.innerHTML;    /* 1.wtf tripled; 2.add pointer class to cursor */
+                for (var j=0; j<responseList.length; j++) {
+                    if (title === responseList[j].Title) {
+                        console.log(responseList[j]);
+                    }
+                }
+            }
+            // console.log("***" + precog + "****");
+            // console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
        }
     }
     
