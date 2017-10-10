@@ -1,0 +1,17 @@
+[Sat Oct 07 18:16:47.738588 2017] [mpm_prefork:notice] [pid 3130] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.22 configured -- resuming normal operations
+[Sat Oct 07 18:16:47.738658 2017] [core:notice] [pid 3130] AH00094: Command line: 'apache2'
+[Sat Oct 07 18:16:52.672551 2017] [core:info] [pid 3160] [client 10.240.1.18:55984] AH00128: File does not exist: /home/ubuntu/workspace/favicon.ico, referer: https://movie-db-final-proj-iulia34.c9users.io/pages/addMovie.html
+[Sun Oct 08 06:13:35.314050 2017] [core:warn] [pid 2387] AH00098: pid file /home/ubuntu/lib/apache2/run/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 08 06:13:35.322628 2017] [mpm_prefork:notice] [pid 2387] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.22 configured -- resuming normal operations
+[Sun Oct 08 06:13:35.322672 2017] [core:notice] [pid 2387] AH00094: Command line: 'apache2'
+[Sun Oct 08 06:13:40.873543 2017] [core:info] [pid 2424] [client 10.240.0.189:36908] AH00128: File does not exist: /home/ubuntu/workspace/favicon.ico, referer: https://movie-db-final-proj-iulia34.c9users.io/pages/addMovie.html
+[Mon Oct 09 07:00:30.136951 2017] [core:warn] [pid 2757] AH00098: pid file /home/ubuntu/lib/apache2/run/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon Oct 09 07:00:30.143044 2017] [mpm_prefork:notice] [pid 2757] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.22 configured -- resuming normal operations
+[Mon Oct 09 07:00:30.143119 2017] [core:notice] [pid 2757] AH00094: Command line: 'apache2'
+[Mon Oct 09 07:00:33.669758 2017] [core:info] [pid 2774] [client 10.240.1.14:44290] AH00128: File does not exist: /home/ubuntu/workspace/favicon.ico, referer: https://movie-db-final-proj-iulia34.c9users.io/pages/addMovie.html
+[Mon Oct 09 09:08:54.006263 2017] [core:info] [pid 2775] [client 10.240.1.18:55050] AH00128: File does not exist: /home/ubuntu/workspace/favicon.ico
+[Mon Oct 09 14:38:24.429182 2017] [core:info] [pid 2771] [client 10.240.0.224:58078] AH00128: File does not exist: /home/ubuntu/workspace/favicon.ico, referer: https://movie-db-final-proj-iulia34.c9users.io/pages/addMovie.html
+[Tue Oct 10 05:55:28.403142 2017] [core:warn] [pid 2603] AH00098: pid file /home/ubuntu/lib/apache2/run/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue Oct 10 05:55:28.409937 2017] [mpm_prefork:notice] [pid 2603] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.22 configured -- resuming normal operations
+[Tue Oct 10 05:55:28.409992 2017] [core:notice] [pid 2603] AH00094: Command line: 'apache2'
+[Tue Oct 10 05:55:32.975449 2017] [core:info] [pid 2619] [client 10.240.1.18:33814] AH00128: File does not exist: /home/ubuntu/workspace/favicon.ico, referer: https://movie-db-final-proj-iulia34.c9users.io/pages/addMovie.html

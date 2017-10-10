@@ -1,0 +1,13 @@
+[user]
+    name = Iulia Munteanu
+    email = panc_iulia@yahoo.com
+[core]
+    editor = nano
+    whitespace = off
+    excludesfile = ~/.gitignore
+[advice]
+    statusuoption = false
+[color]
+    ui = true
+[push]
+    default = current
