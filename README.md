@@ -3,6 +3,8 @@ First steps
 
 Get the project: 
 
+git clone https://github.com/SomethingWentWrongButWeFixedIt/scola-informala-imdb.git
+
 git remote add origin https://github.com/SomethingWentWrongButWeFixedIt/scola-informala-imdb.git
 
 Check the origin
