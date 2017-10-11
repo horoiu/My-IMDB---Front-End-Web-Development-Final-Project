@@ -31,15 +31,11 @@ window.addEventListener("load", function() {
         function intuitiveSearch(e){
             var suggest = document.getElementById("placeholder");
             suggest.addEventListener("click", suggestedResult);
-            // var mouseDeleteCheck = suggest.innerHTML.slice(0,suggest.innerHTML-1);
-            // if (mouseDeleteCheck.length > precog.length) {
-            //     precog = suggest.innerHTML;
-            // }
             if (event.key === "Enter") { 
                 startSearch();
                  /*not working for mouse select/overwrite */
             } else if (event.key === "Backspace") {
-                precog = precog.slice(0, precog.length-1); 
+                precog = precog.slice(0, precog.length-1);
               } else {
                   precog +=event.key;
                 }
@@ -53,7 +49,7 @@ window.addEventListener("load", function() {
                         suggest.innerHTML = "";
                     }
                 }
-            }
+            } else { suggest.innerHTML = "";}
             function suggestedResult(e) {
                 var title = suggest.innerHTML;    /* 1.wtf tripled; 2.add pointer class to cursor */
                 for (var j=0; j<responseList.length; j++) {
@@ -62,8 +58,8 @@ window.addEventListener("load", function() {
                     }
                 }
             }
-            console.log("***" + precog + "****");
-            console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
+            // console.log("***" + precog + "****");
+            // console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
        }
     }
     

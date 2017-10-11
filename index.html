@@ -2,18 +2,67 @@
 <html>
     <head>
         <title>Search bar</title>
+        <link rel="stylesheet" href="CSS/style.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="Models/Movie.js"></script>
         <script type="text/javascript" src="Models/Movies.js"></script>
-        <script type="text/javascript" src="Views/search.js"></script>
+        <!--<script type="text/javascript" src="Views/search.js"></script>-->
         <!--<script type="text/javascript" src="Views/suggestion.js"></script>-->
+        <script type="text/javascript" src="Views/newSearch.js"></script>
+        <!--<script type="text/javascript" src="Views/genre_menu.js"></script>-->
     </head>
     <body>
         <div>
             <label>Title: </label>
             <input class="js_search_input" type="text" name="Search Bar" style="width:30%; margin-top:50px"/> 
-            <button class="js_search_btn">Search</button>
+            <button class="js_search_btn search-btn-js">Search</button>
             <p id="placeholder"></p>
+            
+            <button class="toggle_genre_js">Genre</button>
+            <ul id="genre-list-js">
+                <li>
+                    <input class="genre" type="checkbox" value="Action"/>Action</li> 
+                <li>
+                    <input class="genre" type="checkbox" value="Adventure"/>Adventure</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Animation"/>Animation</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Biography"/>Biography</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Comedy"/>Comedy</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Crime"/>Crime</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Documentary"/>Documentary</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Drama"/>Drama</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Family"/>Family</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Fantasy"/>Fantasy</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Film-Noir"/>Film-Noir</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="History"/>History</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Horror"/>Horror</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Music"/>Music</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Musical"/>Musical</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Mystery"/>Mystery</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Romance"/>Romance</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Sci-Fi"/>Sci-Fi</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Sport"/>Sport</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Thriller"/>Thriller</li>  
+                <li>
+                    <input class="genre" type="checkbox" value="Western"/>Western</li> 
+            </ul>
         </div>
     </body>
 </html>
