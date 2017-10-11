@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IMDB</title>
     <link href="./css/homepage.css" rel="stylesheet" type="text/css" media="screen">
     <script src="./js/homepage.js"></script>
 </head>
+
 <body>
     <!-- the content will be there -->
     <div class="content-wrapper">
 
         <!-- Header element will contain the logo, login/logut elements, nav and search  -->
-        <header class="">
-            <h1 title="IMDB Logo">
-                <img src="./images/logo.jpg" alt="Image placeholder.">
-            </h1>
-            <form class="search-form" action="search">
-                <input class="search-input" type="search" name="search" placeholder="Search this site">
-                <button class="search-btn" type="submit">Search</button>
-            </form>
-            <form class="login-register-form" action="search">
-                <input class="username-input" type="text" name="username" placeholder="Username">
-                <input class="password-input" type="password" name="password" placeholder="Password">
-                <button class="login-btn" type="submit">Login</button>
-                <button class="register-btn" type="button">Register</button>
-            </form>
-            <nav>
-                <a href="#">Home1</a>
-                <a href="#">Home2</a>
-                <a href="#">Home3</a>
-                <a href="#">Home4</a>
-                <a href="#">Home5</a>
-            </nav>
+        <header class="header-wrapper">
+            <section class="logo-section">
+                <h1 title="IMDB Logo">
+                    <img src="./images/logo.jpg" alt="Image placeholder.">
+                </h1>
+            </section>
+            <section class="login-register-section">
+                <form class="login-register-form" action="search">
+                    <input class="username-input" type="text" name="username" placeholder="Username">
+                    <input class="password-input" type="password" name="password" placeholder="Password">
+                    <button class="login-btn" type="submit">Login</button>
+                    <button class="register-btn" type="button">Register</button>
+                </form>
+            </section>
+            <section class="menu-section">
+                <nav class="single-line-nav menu">
+                    <ul>
+                        <li>
+                            <a href="#">Home1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home3</a>
+                        </li>
+                        <li>
+                            <a href="#">Home4</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+            <section class="search-section">
+                <form class="search-form" action="search">
+                    <input class="search-input" type="search" name="search" placeholder="Search this site">
+                    <button class="search-btn" type="submit" value="Search">Search</button>
+                </form>
+            </section>
         </header>
 
         <div class="dinamic-content">
@@ -44,4 +64,5 @@
         </footer>
     </div>
 </body>
+
 </html>
