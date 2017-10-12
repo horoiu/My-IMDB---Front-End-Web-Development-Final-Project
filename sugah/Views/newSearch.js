@@ -3,65 +3,28 @@ window.addEventListener("load", function() {
     var searchBtn = document.getElementsByClassName("js_search_btn")[0];
     var searchInput = document.getElementsByClassName("js_search_input")[0];
     var genreArr = ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Film-Noir", "History", "Horror", "Music", "Musical", "Mystery", "Romance", "Sci-Fi", "Sport", "Thriller", "Western",];
-    // console.log(genreArr);
     searchBtn.addEventListener("click", startSearch);
-    searchInput.addEventListener("keydown", intuitiveSearch);
-    
-    function intuitiveSearch(e){
-        var precog ="";
-        var suggest = document.getElementById("placeholder");
-        suggest.addEventListener("click", suggestedResult);
+    searchInput.addEventListener("keydown", inputSearch);
+    function inputSearch(event){
         if (event.key === "Enter") { 
             startSearch();
-             /*not working for mouse select/overwrite */
-        } else if (event.key === "Backspace") {
-            precog = precog.slice(0, precog.length-1);
-               } else {
-                   precog +=event.key;
-                 }
-        if (precog.length > 2) {
-            for (var i=0; i<responseList.length; i++) {
-                if (responseList[i].Title.toLowerCase().includes(precog)) {
-                    suggest.innerHTML = responseList[i].Title;
-                    i=responseList.length;   
-                } else {
-                    suggest.innerHTML = "";
-                  }
-            }
-        } else { suggest.innerHTML = "";}
-        
-        function suggestedResult(e) {
-            var title = suggest.innerHTML;    /* 1.wtf tripled; 2.add pointer class to cursor */
-            for (var j=0; j<responseList.length; j++) {
-                if (title === responseList[j].Title) {
-                    // console.log(responseList[j]);
-                }
-            }
         }
-        // console.log("***" + precog + "****");
-        // console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
     }
-       
     function startSearch() {
         var searchMovie=searchInput.value;
-        var chosenGenre = [];
-        var genreList =document.getElementsByClassName("genre");
-        for (var i=0; i<genreList.length; i++){
-            if (genreList[i].checked) {
-                chosenGenre.push(genreList[i].value);
-            }
-        }
-        console.log(chosenGenre);
-
-
+        /* check to see which genre has been selected, if any */
+        var genreList = document.getElementById("genre-list-js");
+        var selectedGenre = genreList.options[genreList.selectedIndex].text;
         var allMovies = new DataBase();
-        /* after implementing Genre, add a genreArr param to get*/
-        allMovies.getMovies(searchMovie, chosenGenre).then(doStuff).catch(function(error){console.log("Data base error: " + error)});
-        function doStuff(response) {
+        /* get the results according to search params : title and/or genre */
+        allMovies.getMovies(searchMovie, selectedGenre).then(showResults).catch(function(error){console.log("Data base error: " + error)});
+        
+        function showResults(response) {
             var resultsArr = [];
             for (var i=0; i<response.moviesList.length; i++) {
                 resultsArr.push(response.moviesList[i]);
             }
+            /* purge doubles from response */
             for (var j=0; j<resultsArr.length; j++) {
                 for (var k=j+1; k<resultsArr.length; k++) {
                    if (resultsArr[j].Title === resultsArr[k].Title && resultsArr[j].Year === resultsArr[k].Year) {
@@ -71,6 +34,7 @@ window.addEventListener("load", function() {
                 }
                 
             }
+            /* check whether we found or not movies according to search */
             if (resultsArr.length >0) {
                 console.log(resultsArr);
             } else {
@@ -78,10 +42,52 @@ window.addEventListener("load", function() {
               }
         }    
     }
-    
-       
-       
-       
-    
-    
-})
+});
+
+
+
+
+/* implement intuitive search if time */
+// function intuitiveSearch(e){
+//             var suggest = document.getElementById("placeholder");
+//             suggest.addEventListener("click", suggestedResult);
+//             if (event.key === "Enter") { 
+//                 startSearch();
+//                  /*not working for mouse select/overwrite */
+//             } else if (event.key === "Backspace") {
+//                 precog = precog.slice(0, precog.length-1);
+//               } else {
+//                   precog +=event.key;
+//                 }
+//             if (precog.length > 2) {
+//                 for (var i=0; i<responseList.length; i++) {
+//                     if (responseList[i].Title.toLowerCase().includes(precog)) {    
+//                         suggest.innerHTML = responseList[i].Title;
+//                         i=responseList.length;   
+//                     }
+//                     else {
+//                         suggest.innerHTML = "";
+//                     }
+//                 }
+//             } else { suggest.innerHTML = "";}
+//             function suggestedResult(e) {
+//                 var title = suggest.innerHTML;    /* 1.wtf tripled; 2.add pointer class to cursor */
+//                 for (var j=0; j<responseList.length; j++) {
+//                     if (title === responseList[j].Title) {
+//                         console.log(responseList[j]);
+//                     }
+//                 }
+//             }
+//             console.log("***" + precog + "****");
+//             // console.log(searchInput.value);  /* why is it one keypress behind? -> want to use this to check is user deleted with mouse */
+//       }
+
+/*  multiple genre selection search; discard at the end only, we might decide to keep it after all */
+    // var chosenGenre = [];
+        // var genreList =document.getElementsByClassName("genre");
+        // for (var i=0; i<genreList.length; i++){
+        //     if (genreList[i].checked) {
+        //         chosenGenre.push(genreList[i].value);
+        //     }
+        // }
+        // console.log(chosenGenre);
