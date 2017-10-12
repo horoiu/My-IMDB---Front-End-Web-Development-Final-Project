@@ -1,7 +1,7 @@
 # scola-informala-imdb
 First steps
 
-Get the project: 
+1. Get the project: 
 
 git clone https://github.com/SomethingWentWrongButWeFixedIt/scola-informala-imdb.git
 
