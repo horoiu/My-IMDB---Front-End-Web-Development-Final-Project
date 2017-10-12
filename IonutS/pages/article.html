@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Fetch OMDB API</title>
+    </head>
+    
+    <body>
+    <button id='getOmdb'>getOmdb</button>    
+        <div id="output"/>
+   
+   <SCRIPT>
+
+document.getElementById('getOmdb').addEventListener('click', getOmdb);
+
+            
+            function getOmdb(){
+                fetch('https://ancient-caverns-16784.herokuapp.com/movies')
+                .then(function(res){
+                    console.log(res);
+             return res.json();        
+        
+                })
+                .then((data) => {
+                    let output = '<h2>Omdb</h2>';
+                    console.log(data);
+                    data.results.forEach(function(Omdb){
+                        console.log(Omdb);
+                    output+=`
+                <div>
+                    <h3>${Omdb.Title}</h3>
+                    <p>${Omdb.Genre}</p>
+                    
+                    <button>Delete</button>
+                    
+                    </div>
+                    `;    
+                    });
+                    document.getElementById('output').innerHTML = output;
+                       })
+            }
+      </SCRIPT>
+    </body>
+    </html>
+    
