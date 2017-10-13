@@ -1,202 +1,260 @@
-let logInCheck = () => {
-    event.preventDefault();
+window.addEventListener('load', function() {
 
-    //get values of username and password fields
-    const user = document.getElementById('user-field');
-    const username = user.value;
-    const pass = document.getElementById('pass-field');
-    const password = pass.value;
-    
-    // check if username field is emppty and add or remove 'error' class
-    if (username == "") {
-        user.classList.add('error');
-    } else {
-        user.classList.remove('error');
-    }
-
-    // check if password field is emppty and add or remove 'error' class
-    if (password == "") {
-        pass.classList.add('error');
-    } else {
-        pass.classList.remove('error');
-    }
-
-    //if username and password fields are not empty, run 'logIn' function
-    if (username != "" && password != "") {
-        logIn();
-    }
-    return;
-};
-
-
-let registerCheck = () => {
-    event.preventDefault();
-
-    //get values of username and password fields
-    const user = document.getElementById('user-field');
-    const username = user.value;
-    const pass = document.getElementById('pass-field');
-    const password = pass.value;
-    
-    // check if username field is emppty and add or remove 'error' class
-    if (username == "") {
-        user.classList.add('error');
-    } else {
-        user.classList.remove('error');
-    }
-
-    // check if password field is emppty and add or remove 'error' class
-    if (password == "") {
-        pass.classList.add('error');
-    } else {
-        pass.classList.remove('error');
-    }
-
-    //if username and password fields are not empty, run 'register' function
-    if (username != "" && password != "") {
-        register();
-    }
-    return;
-};
-
-
-let logIn = () => {
-    console.log("LogIn button clicked");
-    
-    const user = document.getElementById('user-field');
-    const usernameValue = user.value;
-    const pass = document.getElementById('pass-field');
-    const passwordValue = pass.value;
     const logInButton = document.getElementById('logIn');
+    logInButton.addEventListener('click', logInCheck);
+    
     const registerButton = document.getElementById('register');
+    registerButton.addEventListener('click', registerCheck);
 
-///////////////////////////////////
+    const user = document.getElementById('userField');
+    const pass = document.getElementById('passField');
+    const formElements = document.getElementsByClassName('formElement');
 
-    $(function() {
+
+    function logInCheck() {
+        event.preventDefault();
+    
+        //get values of username and password fields
+        const username = user.value;
+        const password = pass.value;
         
-        $.ajax({
-            url: 'https://ancient-caverns-16784.herokuapp.com/auth/login',
-            type: "POST",
-            data: {
-                username: usernameValue,
-                password: passwordValue
-            },
-            contentType: 'application/x-www-form-urlencoded',
-            success: function(response) {
-                console.log(response);
-                console.log(response.accessToken);
-                logInButton.innerHTML = "LogOut";
-                registerButton.classList.add('disabled');
-                logOut(response.accessToken);
-            },
-        });
-    });  // end of jQuerry function
-
-///////////////////////////////////
-
-
-    console.log("username: ", usernameValue);
-    console.log("password: ", passwordValue);  
-};
-
-
-let logOut = (id) => {
+        // check if username field is empty then add or remove 'red' background
+        if (username == "") {
+            user.style.background = 'rgb(241, 172, 172)';
+        } else {
+            user.style.background = 'white';
+        }
     
+        // check if password field is empty then add or remove 'red' background
+        if (password == "") {
+            pass.style.background = 'rgb(241, 172, 172)';
+        } else {
+             pass.style.background = 'white';
+        }
     
-    ///////////////////////////////////
-
-    $(function() {
+        //if username and password fields are not empty, run 'logIn' function
+        if (username != "" && password != "") {
+            checkButton();
+        }
+        return;
+    }
+ 
+    
+    function registerCheck() {
+        event.preventDefault();
         
-        $.ajax({
-            url: 'https://ancient-caverns-16784.herokuapp.com/auth/logout',
-            type: "GET",
-            data: { 
-                id
-            },
-            contentType: 'application/x-www-form-urlencoded',
-            success: function(response) {
-                console.log(response);
-                // logInButton.innerHTML = "LogOut";
-                // registerButton.classList.add('disabled');
-                // logOut();
-            },
-        });
-    });  // end of jQuerry function
-    
-    ///////////////////////////////////
-    
-};
-
-
-let register = () => {
-    console.log("Register button clicked");
-    
-    const user = document.getElementById('user-field');
-    const usernameValue = user.value;
-    const pass = document.getElementById('pass-field');
-    const passwordValue = pass.value;
-
-///////////////////////////////////    
-    
-    $(function() {
+        //get values of username and password fields
+        const username = user.value;
+        const password = pass.value;
         
-        $.ajax({
-            url: 'https://ancient-caverns-16784.herokuapp.com/auth/register',
-            type: "POST",
-            data: {
-                username: usernameValue,
-                password: passwordValue
-            },
-            contentType: 'application/x-www-form-urlencoded',
-            success: function(response) {
-                console.log(response);
-            },
+        // check if username field is empty then add or remove 'red' background
+        if (username == "") {
+            user.style.background = 'rgb(241, 172, 172)';
+        } else {
+            user.style.background = 'white';
+        }
+    
+        // check if password field is empty then add or remove 'red' background
+        if (password == "") {
+            pass.style.background = 'rgb(241, 172, 172)';
+        } else {
+            pass.style.background = 'white';
+        }
+    
+        //if username and password fields are not empty, run 'register' function
+        if (username != "" && password != "") {
+            register();
+        }
+        return;
+    }
+    
+
+    function checkButton() {
+        event.preventDefault();
+        
+        // take the value of the button
+        let logInButtonValue = logInButton.getAttribute('value');
+        
+        // check the value of the button that was pressed: 'logIn' or 'logOut', and run the appropiate function
+        if (logInButtonValue === 'logIn') {
+            logIn();
+        } else if (logInButtonValue === 'logOut') {
+            logOut();
+        }
+    }
+    
+    
+    function logIn() {
+        console.log("LogIn button clicked");
+        
+        const usernameValue = user.value;
+        const passwordValue = pass.value;
+    
+    
+        /////////////////////////////////// - API call for 'LOGIN'
+    
+        $(function() {
+            $.ajax({
+                url: 'https://ancient-caverns-16784.herokuapp.com/auth/login',
+                type: "POST",
+                data: {
+                    username: usernameValue,
+                    password: passwordValue
+                },
+                contentType: 'application/x-www-form-urlencoded',
+                success: function(response) {
+                    console.log('LogIn -OK response: ', response);
+                    //console.log(response.accessToken);
+                    
+                    // set cookie with 'accessToken' value
+                    document.cookie = 'accessToken=' + response.accessToken;
+                    
+                    hideElements();
+
+                    // - do whatever you want to do after you are LOGGED-IN
+                    // - activate ADD, EDIT & DELETE movie buttons
+                    
+                },
+                error: function(response) {
+                    console.log('LogIn -ERROR response: ', response);
+                    alert("OOOOps. Something went wrong !!!. Please check your 'Username' and 'Password' and try again.");
+                    
+                    // empty 'Username' and 'Password' fields
+                    user.value = '';
+                    pass.value = '';
+                },
+            });
+        });  // end of jQuerry function
+    
+        /////////////////////////////////// - end of API call for 'LOGIN'
+
+    
+        // console.log("username: ", usernameValue);
+        // console.log("password: ", passwordValue);  
+    }
+    
+    
+    function logOut() {
+        console.log("LogOut button clicked");
+        
+        //////////////////////////////////// -  read cookies and get 'accessToken' value 
+        
+        let cookiesString = document.cookie;
+        const cookiesArray = cookiesString.split('; ');
+        let cookies = {};
+        
+        cookiesArray.forEach(function(c) {
+            let cookie = c.split('=');
+            cookies[cookie[0]] = cookie[1];
         });
-    });  // end of jQuerry function
+        
+        let accessToken = cookies.accessToken;
+        //console.log('accessToken: ', accessToken);
+        
+        /////////////////////////////////// - end of reading cookies
+        
+        
+        /////////////////////////////////// - API call for 'LOGOUT'
+        
+        $(function() {
+            $.ajax({
+                url: 'https://ancient-caverns-16784.herokuapp.com/auth/logout',
+                headers: {'x-auth-token': accessToken},
+                type: "GET",
+                success: function(response) {
+                    console.log('LogOUT -OK response: ', response);
+                    
+                    showElements();
 
-///////////////////////////////////
-
-    console.log("username: ", usernameValue);
-    console.log("password: ", passwordValue);   
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    // - do whatever you want to do after you are LOGGED-OUT
+                    // - deactivate ADD, EDIT & DELETE movie buttons
+                    
+                },
+                error: function(response) {
+                    console.log('LogOut -ERROR response: ', response);
+                    alert("OOOOps. Something went wrong !!!. Please check your 'Username' and 'Password' and try again.");
+                    
+                    // empty 'Username' and 'Password' fields
+                    user.value = '';
+                    pass.value = '';
+                },
+            });
+        });  // end of jQuerry function
+        
+        /////////////////////////////////// - end of API call for 'LOGOUT'
+    }
     
-    /////////////////////////////////// - pt logIn
     
-        // fetch('https://ancient-caverns-16784.herokuapp.com/auth/login', {
-        //     method: "POST",
-        //     headers: {
-        //       'Accept': 'application/json, text/plain, */*',
-        //       'Content-Type': 'application/x-www-form-urlencoded',
-        //     },
-          
-        //     //serializing JSON body
-        //     body: JSON.stringify({
-        //       username: usernameValue,
-        //       password: passwordValue,
-        //     })
-        //   })
-        //   .then( (response) => { 
-        //      //do something awesome that makes the world a better place
-        //      console.log(response);
-        //   });
+    function register() {
+        console.log("Register button clicked");
+        
+        const usernameValue = user.value;
+        const passwordValue = pass.value;
     
-    //////////////////////////////////
+    
+        /////////////////////////////////// - API call for 'REGISTER'    
+        
+        $(function() {
+            $.ajax({
+                url: 'https://ancient-caverns-16784.herokuapp.com/auth/register',
+                type: "POST",
+                data: {
+                    username: usernameValue,
+                    password: passwordValue
+                },
+                contentType: 'application/x-www-form-urlencoded',
+                success: function(response) {
+                    console.log('Register -OK response: ', response);
+                    
+                    hideElements();
+                    
+                    // - do whatever you want to do after you are REGISTERED
+                    // - activate ADD, EDIT & DELETE movie buttons
+                    
+                },
+                error: function(response) {
+                    console.log('Register -ERROR response: ', response);
+                    alert("OOOOps. 'Username' already assigned !!!. Please try another 'Username'.");
+                    
+                    // empty 'Username' and 'Password' fields
+                    user.value = '';
+                    pass.value = '';
+                },
+            });
+        });  // end of jQuerry function
+    
+        /////////////////////////////////// - end of API call for 'REGISTER'
+    
+    
+        //console.log("username: ", usernameValue);
+        //console.log("password: ", passwordValue);   
+    }
+    
+    
+    function hideElements() {
+        logInButton.innerHTML = "LogOut";
+        logInButton.setAttribute('value', 'logOut');
+
+        for (let i=0; i<formElements.length; i++) {
+            formElements[i].style.display = 'none';
+        }
+    }
+    
+    
+    function showElements() {
+        logInButton.innerHTML = "LogIn";
+        logInButton.setAttribute('value', 'logIn');
+        user.value = '';
+        pass.value = '';
+        
+        for (let i=0; i<formElements.length; i++) {
+            formElements[i].style.display = 'initial';
+        }
+    }
+
+
+}); //- end of load eventListener function
+
+
+
+
