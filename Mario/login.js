@@ -206,6 +206,9 @@ window.addEventListener('load', function() {
                 success: function(response) {
                     console.log('Register -OK response: ', response);
                     
+                    // set cookie with 'accessToken' value
+                    document.cookie = 'accessToken=' + response.accessToken;
+                    
                     hideElements();
                     
                     // - do whatever you want to do after you are REGISTERED
