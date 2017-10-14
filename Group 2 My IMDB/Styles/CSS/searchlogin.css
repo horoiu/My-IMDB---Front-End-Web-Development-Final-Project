@@ -1,0 +1,36 @@
+/* 
+    Site search and Login Register design.
+----------------------------------------------------
+*/
+
+.site-search-login {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-flow: row wrap;
+    background: #000;
+    color: #fff;
+    padding: .6em 1em;
+}
+
+/* 
+    Search
+----------------------------------------------------
+*/
+
+
+/* 
+    Login - Register - Logout
+----------------------------------------------------
+*/
+
+.register-btn,
+.login-btn,
+.search-btn
+{
+    border: none;
+    margin: 0;
+    background: rgb(15, 15, 15);
+    color: white;
+    padding: .6em 1em;
+}

@@ -1,0 +1,13 @@
+/*--------------------------------------------------------------
+	The main layouts of the page
+--------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+html {
+    font-family: 'Merriweather', sans-serif;
+}
+
+body {
+    background: rgb(198, 200, 204);
+}
