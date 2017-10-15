@@ -51,6 +51,7 @@ ol, ul {
 }
 
 a {
+	font-size: 0.9em;
 	background-color: transparent;
 	text-decoration: none;
 }

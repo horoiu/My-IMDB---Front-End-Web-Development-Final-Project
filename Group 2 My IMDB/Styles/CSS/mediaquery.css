@@ -1,27 +1,124 @@
-@media (max-width: 1150px) {
-    input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+@media (min-width: 1000px) {
+
+/* wrapper */
+
+    .wrapper{
+        width: 90%;
+        margin: auto;
     }
 
-    .login-register-form{
+/* haeder */
+
+    .site-header {
         display: flex;
-        flex-flow: column wrap;
+        justify-content: space-between;
+        flex-flow: nowrap;
+        align-items: center;
+        padding: .6em 1em .6em 1em;
+        white-space: nowrap;
     }
 
-    .search-form{
+    .site-branding {
         display: flex;
-        flex-flow: column wrap;
     }
+
+    .site-menu ul {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: .6em;
+        margin: 0;
+    }
+
+/* search */
+
+    .site-search-login {
+        padding: 0em 1em .6em 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .search-form {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .search-input {
+        display: flex;
+        flex-grow: 3;
+    }
+
+    .select-btn {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .search-btn {
+        display: flex;
+        flex-grow: 1;
+    }
+
+
+/* Login Register  */
+
+    .login-register-form {
+        display: flex;
+    }
+
+    .general-input {
+        border: 1px solid #000;
+        margin: 0;
+    }
+
+    .general-btn {
+        padding: 0 5px 0 5px;
+        margin: 0;
+    }
+
 }
 
-@media (max-width: 670px) {
-}
+@media (max-width: 999px) and (min-width: 415px){
 
-@media (max-width: 481px) {
+    /* wrapper */
+    .wrapper{
+        width: 90%;
+        margin: auto;
+    }
+
+    /* header */
+    .site-menu ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    /* search */
+    .search-form {
+        display: flex;
+        margin-bottom: 0.75em;
+    }
+
+    .search-input {
+        flex: 2 0 50%;
+    }
+
+    .form-btn {
+        flex: 2 0 50%;
+    }
+
+    .general-btn {
+        margin: 0px;
+    }
+
+    /* login - register */
+
+    .username-input,
+    .password-input {
+        flex: 2 0 50%;
+        border: 1px solid #000;
+    }
+
+
+    .login-register-form {
+        display: flex;
+        flex-flow: row wrap;
+    }
 }
