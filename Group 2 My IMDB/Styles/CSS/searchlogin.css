@@ -13,24 +13,40 @@
     padding: .6em 1em;
 }
 
+input, 
+select {
+    color: black;
+}
+
 /* 
     Search
 ----------------------------------------------------
 */
 
+.search-form{
+    display: flex;
+    flex-flow: row wrap;
+}
 
 /* 
     Login - Register - Logout
 ----------------------------------------------------
 */
 
+.login-register-form{
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .register-btn,
 .login-btn,
 .search-btn
 {
-    border: none;
-    margin: 0;
+    text-align: center;
+    text-decoration: none;
     background: rgb(15, 15, 15);
     color: white;
+    border: none;
+    margin: 0;
     padding: .6em 1em;
 }
