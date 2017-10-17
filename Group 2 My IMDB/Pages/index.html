@@ -7,6 +7,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../Styles/App.css">
     <script src="../Views/login.js" type="text/javascript"></script> 
+    
+    <script type="text/javascript" src="../Models/Movie.js"></script>
+    <script type="text/javascript" src="../Models/Movies.js"></script>
+    <script type="text/javascript" src="../Views/newSearch.js"></script>
+    <script type="text/javascript" src="../Models/Get_Movie_Details.js"></script>
     <title>IMDB</title>
 </head>
 <body>
@@ -36,9 +41,9 @@
 
     <section class="site-search-login">
         <form class="search-form" action="search">
-            <input class="search-input general-input" type="search" name="search" placeholder="Search this site">
+            <input class="js_search_input search-input general-input" type="search" name="search" placeholder="Search this site">
             <div class="form-btn">
-                <select class="general-btn">
+                <select id="genre-list-js" class="genre-list-js general-btn">
                     <option value="All">All</option>
                     <option value="Action">Action</option> 
                     <option value="Adventure">Adventure</option>
@@ -62,7 +67,7 @@
                     <option value="Thriller">Thriller</option>
                     <option value="Western">Western</option>
                 </select>
-                <button class="search-btn general-btn" type="submit" value="Search">Search</button>
+                <button class="js_search_btn search-btn-js search-btn general-btn"  value="Search">Search</button>
             </div>
         </form>
 
@@ -71,7 +76,7 @@
             <input class="password-input general-input form-element" id="pass-field" type="password" name="password" placeholder="Password">
             <div class="form-btn">
                 <button class="login-btn general-btn" id="log-in" type="submit" value="log-in">Sign in</button>
-                <button class="register-btn general-btn form-element" id="register" type="button"value="register">Register</button>
+                <button class="register-btn general-btn form-element" id="register" type="button" value="register">Register</button>
             </div>
         </form>
     </section>
@@ -79,7 +84,7 @@
 
 
     <div class="content-wrapper">
-
+        <div id="search-results"></div>
     </div>
 
     <footer class="site-footer">

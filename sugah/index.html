@@ -5,10 +5,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="Models/Movie.js"></script>
         <script type="text/javascript" src="Models/Movies.js"></script>
-        <!--<script type="text/javascript" src="Views/search.js"></script>-->
         <script type="text/javascript" src="Views/newSearch.js"></script>
-        <!--<script type="text/javascript" src="Views/movieDetails.js"></script>-->
-        <!--movie details page part-->
         <script type="text/javascript" src="Models/Get_Movie_Details.js"></script>
         
         
@@ -18,7 +15,9 @@
         <div>
             <label for="titleSearch">Title: </label>
             <input id="titleSearch" class="js_search_input" type="text" name="Search Bar" style="width:30%; margin-top:50px"/> 
+            
             <button class="js_search_btn search-btn-js">Search</button>
+            
             <p id="placeholder"></p>
             <label for="genre-list-js">Select genre:</label>
             <select id="genre-list-js">
@@ -46,8 +45,6 @@
                 <option value="Western">Western</option>
             </select>
         </div>
-        <div id="search-results">
-            
-        </div>
+        <div id="search-results"></div>
     </body>
 </html>
