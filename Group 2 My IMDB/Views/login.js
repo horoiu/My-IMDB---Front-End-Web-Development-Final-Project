@@ -5,15 +5,19 @@ window.addEventListener('load', function() {
         const logInButton = document.getElementById('log-in');
         logInButton.addEventListener('click', logInCheck);
         
+        const logOutButton = document.getElementById('log-out');
+        logOutButton.addEventListener('click', logOut);
+        
         const registerButton = document.getElementById('register');
         registerButton.addEventListener('click', registerCheck);
-    
+        
         const user = document.getElementById('user-field');
         const pass = document.getElementById('pass-field');
-        const formElements = document.getElementsByClassName('form-element');
-    
-    
-        function logInCheck() {
+        
+        cookieCheck();
+        
+        
+        function logInCheck(event) {
             event.preventDefault();
         
             //get values of username and password fields
@@ -22,16 +26,12 @@ window.addEventListener('load', function() {
             
             // chech if the input fields are not empty
             fieldsCheck(username, password);
-        
-            //if username and password fields are not empty, run 'checkButton' function
-            if (username != "" && password != "") {
-                checkButton();
-            }
-            return;
+
+            logIn();
         }
      
         
-        function registerCheck() {
+        function registerCheck(event) {
             event.preventDefault();
             
             //get values of username and password fields
@@ -66,27 +66,9 @@ window.addEventListener('load', function() {
             return;
         }
     
-    
-        function checkButton() {
-    
-            // take the value of the button
-            let logInButtonValue = logInButton.getAttribute('value');
-            
-            // check the value of the button that was pressed: 'logIn' or 'logOut', and run the appropiate function
-            if (logInButtonValue === 'log-in') {
-                logIn();
-            } else if (logInButtonValue === 'log-out') {
-                logOut();
-            }
-        }
-        
         
         function logIn() {
             console.log("LogIn button clicked");
-            
-            const usernameValue = user.value;
-            const passwordValue = pass.value;
-        
         
             /////////////////////////////////// - API call for 'LOGIN'
         
@@ -95,8 +77,8 @@ window.addEventListener('load', function() {
                     url: 'https://ancient-caverns-16784.herokuapp.com/auth/login',
                     type: "POST",
                     data: {
-                        username: usernameValue,
-                        password: passwordValue,
+                        username: user.value,
+                        password: pass.value,
                     },
                     contentType: 'application/x-www-form-urlencoded',
                     success: function(response) {
@@ -124,45 +106,27 @@ window.addEventListener('load', function() {
             });  // end of jQuerry function
         
             /////////////////////////////////// - end of API call for 'LOGIN'
-    
-        
-            // console.log("username: ", usernameValue);
-            // console.log("password: ", passwordValue);  
         }
         
         
-        function logOut() {
+        function logOut(event) {
+            event.preventDefault();
             console.log("LogOut button clicked");
-            
-            //////////////////////////////////// -  read cookies and get 'accessToken' value 
-            
-            let cookiesString = document.cookie;
-            const cookiesArray = cookiesString.split('; ');
-            let cookies = {};
-            
-            cookiesArray.forEach(function(c) {
-                let cookie = c.split('=');
-                cookies[cookie[0]] = cookie[1];
-            });
-            
-            let accessToken = cookies.accessToken;
-            //console.log('accessToken: ', accessToken);
-            
-            /////////////////////////////////// - end of reading cookies
-            
             
             /////////////////////////////////// - API call for 'LOGOUT'
             
             $(function() {
                 $.ajax({
                     url: 'https://ancient-caverns-16784.herokuapp.com/auth/logout',
-                    headers: {'x-auth-token': accessToken},
+                    headers: {'x-auth-token': readCookies()},
                     type: "GET",
                     success: function(response) {
                         console.log('LogOUT -OK response: ', response);
-                        
+
                         showElements();
-    
+                        // delete cookie
+                        document.cookie = 'accessToken='+null;
+                        
                         // - do whatever you want to do after you are LOGGED-OUT
                         // - deactivate ADD, EDIT & DELETE movie buttons
                         
@@ -180,11 +144,7 @@ window.addEventListener('load', function() {
         
         function register() {
             console.log("Register button clicked");
-            
-            const usernameValue = user.value;
-            const passwordValue = pass.value;
-        
-        
+
             /////////////////////////////////// - API call for 'REGISTER'    
             
             $(function() {
@@ -192,8 +152,8 @@ window.addEventListener('load', function() {
                     url: 'https://ancient-caverns-16784.herokuapp.com/auth/register',
                     type: "POST",
                     data: {
-                        username: usernameValue,
-                        password: passwordValue
+                        username: user.value,
+                        password: pass.value,
                     },
                     contentType: 'application/x-www-form-urlencoded',
                     success: function(response) {
@@ -220,37 +180,68 @@ window.addEventListener('load', function() {
             });  // end of jQuerry function
         
             /////////////////////////////////// - end of API call for 'REGISTER'
-        
-        
-            //console.log("username: ", usernameValue);
-            //console.log("password: ", passwordValue);   
         }
         
         
         function hideElements() {
-            logInButton.innerHTML = "LogOut";
-            logInButton.setAttribute('value', 'log-out');
-    
-            for (let i=0; i<formElements.length; i++) {
-                formElements[i].style.display = 'none';
-            }
+            // add class 'hide' to hide form elements
+            user.classList.add('hide');
+            pass.classList.add('hide');
+            logInButton.classList.add('hide');
+            registerButton.classList.add('hide');
+            logOutButton.classList.remove('hide');
+            
             return;
         }
         
         
         function showElements() {
-            logInButton.innerHTML = "LogIn";
-            logInButton.setAttribute('value', 'log-in');
+            //reset input fields value
             user.value = '';
             pass.value = '';
             
-            for (let i=0; i<formElements.length; i++) {
-                formElements[i].style.display = 'initial';
-            }
+            // remove class 'hide' to show hidden form elements
+            user.classList.remove('hide');
+            pass.classList.remove('hide');
+            logInButton.classList.remove('hide');
+            registerButton.classList.remove('hide');
+            logOutButton.classList.add('hide');
+           
             return;
         }
     
+        
+        function cookieCheck() {
+            console.log(readCookies());
+
+            if (readCookies() === undefined) {
+                console.log('accessToken: ', readCookies());
+                return;
+            }
+            else { 
+                hideElements();
+            }
+        }
     
+
+        function readCookies() {
+            let cookiesString = document.cookie;
+            const cookiesArray = cookiesString.split('; ');
+            var cookies = {};
+
+            cookiesArray.forEach(function(c) {
+                let cookie = c.split('=');
+                cookies[cookie[0]] = cookie[1];
+            });
+            
+            let accessToken = cookies.accessToken;
+            return accessToken;
+        }
+    
+    
+
+            
+            
     }); //- end of load eventListener function
     
     
