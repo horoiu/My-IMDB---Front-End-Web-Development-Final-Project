@@ -125,7 +125,7 @@ window.addEventListener('load', function() {
 
                         showElements();
                         // delete cookie
-                        document.cookie = 'accessToken='+null;
+                        document.cookie = 'accessToken=';
                         
                         // - do whatever you want to do after you are LOGGED-OUT
                         // - deactivate ADD, EDIT & DELETE movie buttons
@@ -212,10 +212,10 @@ window.addEventListener('load', function() {
     
         
         function cookieCheck() {
-            console.log(readCookies());
+            console.log('readCookie(): ', readCookies());
 
-            if (readCookies() === undefined) {
-                console.log('accessToken: ', readCookies());
+            if (readCookies() ==="" || readCookies() === undefined) {            //if (readCookies() === undefined || readCookies() === null) {
+                //console.log('accessToken: ', readCookies());
                 return;
             }
             else { 
