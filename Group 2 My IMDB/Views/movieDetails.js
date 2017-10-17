@@ -1,18 +1,20 @@
-/* global send me the ID and render */
 /*global MovieDetails */
+window.addEventListener("load", function() {
 
 var url = window.location.href;
-var idString = (url.replace(/[^0-9]/g,''));
-var id = Number(idString.slice(1)); 
+/* get id from url */
+var index = url.indexOf("=")+1;
+var id = url.substr(index);
 console.log(id);
 
+/* GET movie based on it's id */
 var movie = new MovieDetails;
 movie.getDetails(id).then(renderMovie);
 
 function renderMovie(response) {
-    console.log(response);
+    var movieObject = response.reqMovie;
+    console.log(movieObject);
 }
 
 
-
- /* get movie details - API call */
+});
