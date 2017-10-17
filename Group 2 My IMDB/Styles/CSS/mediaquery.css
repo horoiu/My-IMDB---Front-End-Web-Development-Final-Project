@@ -1,0 +1,124 @@
+@media (min-width: 1000px) {
+
+/* wrapper */
+
+    .wrapper{
+        width: 90%;
+        margin: auto;
+    }
+
+/* haeder */
+
+    .site-header {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: nowrap;
+        align-items: center;
+        padding: .6em 1em .6em 1em;
+        white-space: nowrap;
+    }
+
+    .site-branding {
+        display: flex;
+    }
+
+    .site-menu ul {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: .6em;
+        margin: 0;
+    }
+
+/* search */
+
+    .site-search-login {
+        padding: 0em 1em .6em 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .search-form {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .search-input {
+        display: flex;
+        flex-grow: 3;
+    }
+
+    .select-btn {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .search-btn {
+        display: flex;
+        flex-grow: 1;
+    }
+
+
+/* Login Register  */
+
+    .login-register-form {
+        display: flex;
+    }
+
+    .general-input {
+        border: 1px solid #000;
+        margin: 0;
+    }
+
+    .general-btn {
+        padding: 0 5px 0 5px;
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 999px) and (min-width: 415px){
+
+    /* wrapper */
+    .wrapper{
+        width: 90%;
+        margin: auto;
+    }
+
+    /* header */
+    .site-menu ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    /* search */
+    .search-form {
+        display: flex;
+        margin-bottom: 0.75em;
+    }
+
+    .search-input {
+        flex: 2 0 50%;
+    }
+
+    .form-btn {
+        flex: 2 0 50%;
+    }
+
+    .general-btn {
+        margin: 0px;
+    }
+
+    /* login - register */
+
+    .username-input,
+    .password-input {
+        flex: 2 0 50%;
+        border: 1px solid #000;
+    }
+
+
+    .login-register-form {
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
