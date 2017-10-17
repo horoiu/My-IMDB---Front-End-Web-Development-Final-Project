@@ -7,12 +7,17 @@
         <script type="text/javascript" src="Models/Movies.js"></script>
         <!--<script type="text/javascript" src="Views/search.js"></script>-->
         <script type="text/javascript" src="Views/newSearch.js"></script>
+        <!--<script type="text/javascript" src="Views/movieDetails.js"></script>-->
+        <!--movie details page part-->
+        <script type="text/javascript" src="Models/Get_Movie_Details.js"></script>
+        
+        
        
     </head>
     <body>
         <div>
-            <label>Title: </label>
-            <input class="js_search_input" type="text" name="Search Bar" style="width:30%; margin-top:50px"/> 
+            <label for="titleSearch">Title: </label>
+            <input id="titleSearch" class="js_search_input" type="text" name="Search Bar" style="width:30%; margin-top:50px"/> 
             <button class="js_search_btn search-btn-js">Search</button>
             <p id="placeholder"></p>
             <label for="genre-list-js">Select genre:</label>
@@ -40,6 +45,9 @@
                 <option value="Thriller">Thriller</option>
                 <option value="Western">Western</option>
             </select>
+        </div>
+        <div id="search-results">
+            
         </div>
     </body>
 </html>

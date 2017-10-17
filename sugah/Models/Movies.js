@@ -6,6 +6,7 @@ DataBase.prototype.getMovies = function(input, selectedGenre){
     var self = this;
     var root;
     function initDatabase(response) {
+        console.log(response);
         for (var i=0; i<response.results.length; i++) {  
             var newMovie = new Movie(response.results[i]);
             if (newMovie.Title !== undefined && newMovie.Title !== "") {  
