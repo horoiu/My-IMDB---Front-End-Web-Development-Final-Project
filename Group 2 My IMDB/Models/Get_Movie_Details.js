@@ -1,4 +1,4 @@
-/* global $ */
+/* global $ Movie */
 function MovieDetails() {
     this.reqMovie = {};
 }
@@ -7,7 +7,7 @@ MovieDetails.prototype.getDetails = function(id) {
     var root = "https://ancient-caverns-16784.herokuapp.com/movies/" + id;
     return $.get(root).then(initMovie);
     function initMovie(response) {
-        self.reqMovie = response;
+        self.reqMovie = new Movie(response);
         return self;
     }
 
