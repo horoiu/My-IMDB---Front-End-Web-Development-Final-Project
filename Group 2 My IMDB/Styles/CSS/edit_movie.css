@@ -1,0 +1,27 @@
+li {
+    list-style: none;
+}
+input {
+    width: 300px;
+    background-color: #FAFAD2;
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+p {
+    display: inline-block;
+    border: 1px solid black;
+    width: 300px;
+    text-align: center;
+}
+.edit-btn-js {
+    display: inline-block;
+}
+.editable {
+    background-color: #FAFAD2;
+}
+.ratings-list {
+    display: inline-block;
+    border: 2px solid black;
+}

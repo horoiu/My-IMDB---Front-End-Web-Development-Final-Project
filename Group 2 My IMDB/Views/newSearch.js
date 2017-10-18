@@ -67,7 +67,8 @@ window.addEventListener("load", function() {
             /* *************************************MOVIE DETAILS PART************************************************************************** */
             function goToMovieDetails(e) {
                 var wantedMovieId = e.target.id;
-                window.open("./movieDetails.html?id="+wantedMovieId, "_blank");
+                // window.open("./movieDetails.html?id="+wantedMovieId, "_blank");   MOVIE DETAILS NEW PAGE
+                 window.open("./editMovie.html?id="+wantedMovieId, "_blank");    /* edit movie - temporary */
                 var movie = new MovieDetails;
                 movie.getDetails(wantedMovieId).then(renderMovie);
                 function renderMovie(response) {
