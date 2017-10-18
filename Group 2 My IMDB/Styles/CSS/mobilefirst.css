@@ -50,6 +50,24 @@
 }
 
 /* 
+    error message"
+*/
+
+.error-message-full {
+    display: none;
+}
+
+.error-message-mini {
+    display: flex;
+    font-size: 1.2em;
+    justify-content: space-around;
+    padding: 2px;
+    background-color: rgb(228, 231, 45);
+    color: red;
+    border: 1px solid red;
+}
+
+/* 
     serach and login
 */
 

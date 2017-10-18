@@ -38,11 +38,15 @@
         </nav>
     </header>
 
+    <div class="error-message-full error-message">
+        <span><strong>Sorry something went wrong!</strong></span>
+    </div>
+
     <section class="site-search-login">
         <form class="search-form" action="search">
             <input class="js_search_input search-input general-input" type="search" name="search" placeholder="Search this site">
             <div class="form-btn">
-                <select id="genre-list-js" class="genre-list-js general-btn">
+                <select id="genre-list-js" class="genre-list-js general-btn select-btn ">
                     <option value="All">All</option>
                     <option value="Action">Action</option> 
                     <option value="Adventure">Adventure</option>
@@ -69,6 +73,10 @@
                 <button class="js_search_btn search-btn-js search-btn general-btn"  value="Search">Search</button>
             </div>
         </form>
+
+        <div class="error-message-mini error-message">
+                <span><strong>Sorry something went wrong!</strong></span>
+        </div>
 
         <form class="login-register-form" action="search">
             <input class="username-input general-input form-element" id="user-field" type="text" name="username" placeholder="Username">

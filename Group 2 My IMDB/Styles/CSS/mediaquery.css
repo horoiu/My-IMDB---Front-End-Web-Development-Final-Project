@@ -47,16 +47,26 @@
         flex-grow: 3;
     }
 
-    .select-btn {
-        display: flex;
-        flex-grow: 1;
+    .select-btn{
+        width: auto;
     }
 
-    .search-btn {
-        display: flex;
-        flex-grow: 1;
-    }
+/* 
+    error message"
+*/
 
+.error-message-full {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+    background-color: rgb(228, 231, 45);
+    color: red;
+    border: 1px solid red;
+}
+
+.error-message-mini {
+    display: none;
+}
 
 /* Login Register  */
 
