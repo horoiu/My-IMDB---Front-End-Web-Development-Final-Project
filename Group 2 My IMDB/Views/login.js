@@ -14,7 +14,8 @@ window.addEventListener('load', function() {
         const user = document.getElementById('user-field');
         const pass = document.getElementById('pass-field');
         
-        const errorDiv = document.getElementById('error-message');
+        const errorDivFull = document.getElementById('error-message-full');
+        const errorDivMini = document.getElementById('error-message-mini');
         const editMovieButton = document.getElementById('edit-movie-btn');
         const deleteMovieButton = document.getElementById('delete-movie-btn');
         const addMovieButton = document.getElementById('add-movie-btn');
@@ -102,8 +103,10 @@ window.addEventListener('load', function() {
                     error: function(response) {
                         console.log('LogIn -ERROR response: ', response);
                         // show error message
-                        errorDiv.classList.remove('hide');
-                        errorDiv.innerHTML = "Ooopsss... Something went wrong !!! Please check your 'Username' and 'Password' and try again.";
+                        errorDivFull.classList.remove('hide');
+                        errorDivFull.innerHTML = "Ooopsss... Something went wrong !!! Please check your 'Username' and 'Password' and try again.";
+                        errorDivMini.classList.remove('hide');
+                        errorDivMini.innerHTML = "Ooopsss... Something went wrong !!! Please check your 'Username' and 'Password' and try again.";
                         
                         // empty 'Username' and 'Password' fields
                         user.value = '';
@@ -141,8 +144,10 @@ window.addEventListener('load', function() {
                     error: function(response) {
                         console.log('LogOut -ERROR response: ', response);
                         // show error message
-                        errorDiv.classList.remove('hide');
-                        errorDiv.innerHTML = "OOOOps. Something went wrong !!! Please try again.";
+                        errorDivFull.classList.remove('hide');
+                        errorDivFull.innerHTML = "OOOOps. Something went wrong !!! Please try again.";
+                        errorDivMini.classList.remove('hide');
+                        errorDivMini.innerHTML = "OOOOps. Something went wrong !!! Please try again.";
                         //alert("OOOOps. Something went wrong !!! Please try again.");
                     },
                 }); // end of AJAX call
@@ -181,10 +186,11 @@ window.addEventListener('load', function() {
                     error: function(response) {
                         console.log('Register -ERROR response: ', response);
                         //alert("OOOOps. 'Username' already assigned !!! Please try another 'Username'.");
-                        errorDiv.classList.remove('hide');
-                        errorDiv.innerHTML = "Ooopsss... 'Username' already assigned !!! Please try another 'Username'.";
-                        
-                        
+                        errorDivFull.classList.remove('hide');
+                        errorDivFull.innerHTML = "Ooopsss... 'Username' already assigned !!! Please try another 'Username'.";
+                        errorDivMini.classList.remove('hide');
+                        errorDivMini.innerHTML = "Ooopsss... 'Username' already assigned !!! Please try another 'Username'.";
+         
                         
                         // empty 'Username' and 'Password' fields
                         user.value = '';
@@ -211,8 +217,10 @@ window.addEventListener('load', function() {
 
             
             //hide error message DIV and reset HTML content
-            errorDiv.classList.add('hide');
-            errorDiv.innerHTML = "";
+            errorDivFull.classList.add('hide');
+            errorDivFull.innerHTML = "";
+            errorDivMini.classList.add('hide');
+            errorDivMini.innerHTML = "";
             
             return;
         }
