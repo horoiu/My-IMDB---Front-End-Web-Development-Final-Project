@@ -12,9 +12,11 @@ Changeling.prototype.submitChanges = function (editedMovie) {
         $.ajax({
             url : root,
             headers: {'x-auth-token': readCookies()}, 
-            method: "PUT",
+            type: "PUT",
             data: editedMovie,
+            contentType : "text/plain", 
             success : function (response) {
+                
                 console.log("Your edit has been saved, response: ", response);
                 //hide the errorMessage DIV and emtpty HTML message, if any
                 // errorDiv.classList.add('hide');
