@@ -1,4 +1,4 @@
-/*global MovieDetails Movie*/
+/*global MovieDetails Movie Changeling */
 window.addEventListener("load", function() {
 
 var url = window.location.href;
@@ -14,13 +14,10 @@ movie.getDetails(id).then(renderMovie);
 /*      Render Edit Page with DB info       */
 function renderMovie(response) {
     var movieObject = response.reqMovie;
-    console.log(movieObject);
     var pArr = document.getElementsByTagName("p");
     var inputArr = document.getElementsByTagName("input");
-    console.log(inputArr.length + " " + pArr.length);
     /* Rendering all fields but Ratings */
     for (var i=0;i<pArr.length; i++) {
-        // console.log(pArr[i].title);
         pArr[i].innerHTML = movieObject[pArr[i].title];
     }
     
@@ -35,28 +32,29 @@ function renderMovie(response) {
          });
     }
     
-    /* adding submit button functionality */
+    /* adding submit button functionality  --- RATINGS not sorted       */          
     var submitBtn = document.getElementById("submit-changes-js");
     submitBtn.addEventListener("click", function(e) {
         e.preventDefault();
         var newMovieDetails = movieObject;
-        console.log("Before edit: ", newMovieDetails);
         for (var i=0;i<pArr.length; i++) {
             if (!(pArr[i].innerHTML === inputArr[i].innerHTML) && (inputArr[i].value !== "")) {
                 newMovieDetails[inputArr[i].name] = inputArr[i].value;
                 console.log(inputArr[i].value);
             }
         }
-        console.log("New movie info : ", newMovieDetails);
+        
+        /* send changes to the API */
+        var apiCall = new Changeling;
+        apiCall.submitChanges(newMovieDetails);
     });
     
     
     /* rendering Ratings[] list */
     /* hardcoded HTML, 3x Rating divs; some movies only have 2 => undefined values, fix if time  */
     var ratingsList = document.getElementById("ratings");
-    console.log(ratingsList);
     var pRatings = ratingsList.getElementsByTagName("p");
-    console.log(pRatings);
+    // console.log(pRatings);
     var j=0;
     for (var i=0; movieObject.Ratings.length; i++) {
         pRatings[j].innerHTML = movieObject.Ratings[i].Source;
@@ -66,20 +64,6 @@ function renderMovie(response) {
     }
     
     
-   
-    
-    
-    
-    
-    
-    
-    
 }
-
-
-
-
 });
 
-//  registerButton.classList.remove('hide');
-//  logOutButton.classList.add('hide');

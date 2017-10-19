@@ -2,7 +2,7 @@ li {
     list-style: none;
 }
 input {
-    width: 300px;
+    width: 200px;
     background-color: #FAFAD2;
     text-align: center;
 }
@@ -12,7 +12,7 @@ input {
 p {
     display: inline-block;
     border: 1px solid black;
-    width: 300px;
+    width: 200px;
     text-align: center;
 }
 .edit-btn-js {

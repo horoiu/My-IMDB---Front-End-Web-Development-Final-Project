@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,7 @@
                     <a href="#">Home2</a>
                 </li>
                 <li>
-                    <a href="addMovie.html" id = "add-movie-btn" class = "hide">Add Movie</a>
+                    <a href="addMovie.html" target = "_blank" id = "add-movie-btn" class = "hide">Add Movie</a>
                 </li>
                 <li>
                     <a href="#">Home4</a>
@@ -71,33 +72,102 @@
                     <option value="Western">Western</option>
                 </select>
                 <button class="js_search_btn search-btn-js search-btn general-btn"  value="Search">Search</button>
-            </div>
-        </form>
 
-        <div class="error-message-mini error-message">
-                <span><strong>Sorry something went wrong!</strong></span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../Styles/App.css">
+        <script type="text/javascript" src="../Views/login.js"></script> 
+        <script type="text/javascript" src="../Models/Movie.js"></script>
+        <script type="text/javascript" src="../Models/Movies.js"></script>
+        <script type="text/javascript" src="../Views/newSearch.js"></script>
+        <script type="text/javascript" src="../Models/Get_Movie_Details.js"></script>
+        <title>IMDB</title>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="site-branding" title="The site title">
+                <h1 class="site-title">IMDB</h1>
+                <p class="site-description">What is the best film you've ever seen?</p>
+
+            </div>
+            <nav class="site-menu">
+                <ul>
+                    <li>
+                        <a id="edit-movie-btn" class="hide" href="#">Edit Movie</a>
+                    </li>
+                    <li>
+                        <a id="delete-movie-btn" class="hide" href="#">Delete Movie</a>
+                    </li>
+                    <li>
+                        <a id="add-movie-btn" class="hide" href="addMovie.html">Add Movie</a>
+                    </li>
+                    <li>
+                        <a id="spare-btn" href="#">Spare button</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+     
+        <div id="error-message" class="error-message-full error-message hide">
+            <!--span><strong>Sorry something went wrong!</strong></span-->
         </div>
-
-        <form class="login-register-form" action="search">
-            <input class="username-input general-input form-element" id="user-field" type="text" name="username" placeholder="Username">
-            <input class="password-input general-input form-element" id="pass-field" type="password" name="password" placeholder="Password">
-            <div class="form-btn">
-                <button class="login-btn general-btn" id="log-in" type="submit" value="log-in">Log In</button>
-                <button class="logout-btn general-btn hide" id="log-out" type="submit" value="log-out">Log Out</button>
-                <button class="register-btn general-btn form-element" id="register" type="button"value="register">Register</button>
+    
+        <section class="site-search-login">
+            <form class="search-form" action="search">
+                <input class="js_search_input search-input general-input" type="search" name="search" placeholder="Search this site">
+                <div class="form-btn">
+                    <select id="genre-list-js" class="genre-list-js general-btn select-btn ">
+                        <option value="All">All</option>
+                        <option value="Action">Action</option> 
+                        <option value="Adventure">Adventure</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Family">Family</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Film-Noir">Film-Noir</option>
+                        <option value="History">History</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Music">Music</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Western">Western</option>
+                    </select>
+                    <button class="js_search_btn search-btn-js search-btn general-btn" value="Search">Search</button>
+                </div>
+            </form>
+    
+            <div class="error-message-mini error-message">
+                <span><strong>Sorry something went wrong!</strong></span>
             </div>
-        </form>
-    </section>
-
-
-
-    <div class="content-wrapper">
-        <div id="search-results"></div>
-    </div>
-
-    <footer class="site-footer">
-        <h2> The guys: </h2>
-        <ul class="classmates">
+    
+            <form class="login-register-form" action="search">
+                <input class="username-input general-input form-element" id="user-field" type="text" name="username" placeholder="Username">
+                <input class="password-input general-input form-element" id="pass-field" type="password" name="password" placeholder="Password">
+                <div class="form-btn">
+                    <button class="login-btn general-btn" id="log-in" type="submit" value="log-in">Log In</button>
+                    <button class="logout-btn general-btn hide" id="log-out" type="submit" value="log-out">Log Out</button>
+                    <button class="register-btn general-btn form-element" id="register" type="button" value="register">Register</button>
+                </div>
+            </form>
+        </section>
+    
+        <div class="content-wrapper">
+            <div id="search-results"></div>
+        </div>
+    
+        <footer class="site-footer">
+            <h2> The guys: </h2>
+            <ul class="classmates">
                 <li>
                     <a href="#">Guy1</a>
                 </li>
@@ -117,9 +187,12 @@
                     <a href="#">Guy6</a>
                 </li>
                 <li>
-                    <a href="#">Guy7</a>
+                    <a class="image" href="https://www.linkedin.com/in/marianhoroiu/" target="_blank">
+                        <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAArlAAAAJDM4YTRkOWU2LThhYWQtNDZkYy05YTE4LTlmZmJhYzFjODJjNA.jpg"
+                             alt="Marian Horoiu photo" style= "width: 45px; heigth:45px">
+                    </a>
                 </li>
             </ul>
-    </footer>
-</body>
+        </footer>
+    </body>
 </html>
