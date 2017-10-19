@@ -7,6 +7,7 @@ var index = url.indexOf("=")+1;
 var id = url.substr(index);
 console.log(id);
 
+
 /* GET movie based on it's id */
 var movie = new MovieDetails;
 movie.getDetails(id).then(renderMovie);
@@ -45,7 +46,7 @@ function renderMovie(response) {
         }
         
         /* send changes to the API */
-        var apiCall = new Changeling;
+        var apiCall = new Changeling();
         apiCall.submitChanges(newMovieDetails);
     });
     
