@@ -77,8 +77,8 @@ window.addEventListener("load", function() {
             function goToMovieDetails(e) {
                 console.log(e);
                 var wantedMovieId = e.target.parentElement.id;
-                // window.open("./movieDetails.html?id="+wantedMovieId, "_blank");   MOVIE DETAILS NEW PAGE
-                 window.open("./editMovie.html?id="+wantedMovieId, "_blank");    /* edit movie - temporary */
+                window.open("./movieDetails.html?id="+wantedMovieId, "_blank");  /* MOVIE DETAILS NEW PAGE*/
+                //  window.open("./editMovie.html?id="+wantedMovieId, "_blank");    /* edit movie - temporary */
                 var movie = new MovieDetails;
                 movie.getDetails(wantedMovieId).then(renderMovie);
                 function renderMovie(response) {
