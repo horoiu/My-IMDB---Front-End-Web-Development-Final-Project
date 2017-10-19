@@ -56,11 +56,20 @@ window.addEventListener("load", function() {
                     parent.removeChild(parent.firstChild);
                 }
                 for (var i=0; i<arr.length;i++) {
-                    let renderMovie = document.createElement("p");
-                    renderMovie.innerHTML = arr[i].Title;
+                    let renderMovie = document.createElement("div");
+                    let movieTitle = document.createElement("div");
+                    let moviePoster = document.createElement("img");
+                    
+                    movieTitle.innerHTML = arr[i].Title;
                     renderMovie.setAttribute("id", arr[i]._id);
+                    moviePoster.src = arr[i].Poster;
+                    renderMovie.classList.add("search-results-container");
+                    moviePoster.classList.add("search-results-img")
+                    movieTitle.classList.add("movie-title-js")
                     renderMovie.addEventListener("click", goToMovieDetails);
                     parent.appendChild(renderMovie);
+                    renderMovie.appendChild(moviePoster);
+                    renderMovie.appendChild(movieTitle);
                 }
                
             }
