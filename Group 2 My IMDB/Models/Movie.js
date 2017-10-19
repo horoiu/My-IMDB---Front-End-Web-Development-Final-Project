@@ -4,7 +4,7 @@ function Movie(defaultData){
     this.Title = defaultData.Title;
     this.Year = defaultData.Year;
     this.Rated = defaultData.Rated;
-    this.Ratings = defaultData.Ratings;   /* OBJECTS ARRAY */
+    this.Ratings = defaultData.Ratings || [];   /* OBJECTS ARRAY */
     this.Released = defaultData.Released;
     this.Runtime = defaultData.Runtime;
     this.Genre = defaultData.Genre;
