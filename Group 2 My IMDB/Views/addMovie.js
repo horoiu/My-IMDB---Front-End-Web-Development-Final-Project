@@ -2,32 +2,39 @@
 /*global MoviesAdded*/
 
 window.addEventListener("load", function() {
+
    const message = document.querySelector(".message-js");
-    
    const newMovie = new Movie();
    const movieList = new MoviesAdded();
   
    const addMovieBtn = document.querySelector(".submit");
    addMovieBtn.onclick = function (){
+       /*message should be empty after every script execution*/
        message.innerHTML = "";
-       const inputError = document.querySelectorAll(".required-js");
+       //read user's input
        createNewMovie();
-      if(checkRequired()){
+       
+       //get all required fields
+       const inputError = document.querySelectorAll(".required-js");
+       /*if required fields are empty, alert the user, else reset form and remove 
+       error color and message*/
+       if(checkRequired()){
         for (let i = 0; i<inputError.length; i++){
             inputError[i].style.backgroundColor = "#FF6347";
+            message.innerHTML = "Please complete all the required fields!";
         }
-        message.innerHTML = "Please complete all the required fields!";
-       
    }else{
         document.querySelector(".my-form-js").reset();
         for (let i = 0; i<inputError.length; i++){
             inputError[i].style.backgroundColor = null;
         }
+        //wait response from API to check if the movie to be added exists in DB
         const moviesRequest = movieList.getMovies(newMovie);
         moviesRequest.then(checkMovieExistInDB);
    }
 }
-
+    //if the movie to be added exists in DB, throw informational message
+    //if not, post new movie in DB
    function checkMovieExistInDB(moviesRequest){
         if (movieList.moviesAdded.length>0){
             message.innerHTML = "This movie exits in database.";
@@ -39,6 +46,7 @@ window.addEventListener("load", function() {
         }
    }
    
+   //get the input from the user
    function createNewMovie(){
        newMovie._id = Date.now()*Math.random();
        newMovie.Title =document.querySelector(".title").value;
@@ -68,6 +76,7 @@ window.addEventListener("load", function() {
        newMovie.Webiste = document.querySelector(".website").value;
    }
    
+   //form validation
    function checkRequired(){
        if ((newMovie.title === "")||(newMovie.Year === "")||(newMovie.Runtime ==="")||
    (newMovie.Language === "")||(newMovie.Country === "")||(newMovie.Type === "")||

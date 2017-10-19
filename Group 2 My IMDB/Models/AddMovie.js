@@ -5,6 +5,7 @@ function MoviesAdded(){
     this.moviesAdded = [];
 }
 
+/*check if the movie to be added already exists in database*/
 MoviesAdded.prototype.getMovies = function(newMovie){
     let that = this;
     const moviesUrl = "https://ancient-caverns-16784.herokuapp.com/movies" +
@@ -19,6 +20,8 @@ MoviesAdded.prototype.getMovies = function(newMovie){
         console.log(error);
     });
     
+    /*if the response brought a movie, add it to the movies array, else movie
+    array will be empty*/
     function searchResults(response){
         const responseLength = response.results.length; 
         if (responseLength>0){
@@ -32,6 +35,7 @@ MoviesAdded.prototype.getMovies = function(newMovie){
     }
 }
 
+/*call API to add the user's movie*/
 Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
  
     const moviesUrl = "https://ancient-caverns-16784.herokuapp.com/movies";
@@ -39,6 +43,7 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
     $.ajax({
         url: moviesUrl,
         method:'POST',
+        /*acces token need it because this is a functionality for logged users*/
         headers:{
             'x-auth-token':getAccesToken(),
         },
@@ -77,6 +82,7 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
         alert("You need to be authenticated to be able to create a movie")
     });
     
+    /*read the acces token cookie*/
      function getAccesToken(){
             let imdbCookies = document.cookie;
             const imdbCookiesArray = imdbCookies.split("; ");

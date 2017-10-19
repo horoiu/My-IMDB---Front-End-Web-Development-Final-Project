@@ -1,9 +1,13 @@
+
+/*form styles*/
 .my-form-css{
   display:flex;
   flex-flow:column wrap;
   align-items:flex-start;
   list-style: none;
   padding: 0;
+  height:600px;
+  width: 960px;
 }
 
 .my-form-js li{
@@ -36,6 +40,7 @@ input[type='button']:hover{
   background-color: #F5F5DC;
 }
 
+/*style paragraph for error and informational messages*/
 .message{
   background-color: #F08080;
   font-size: 1.3em;
