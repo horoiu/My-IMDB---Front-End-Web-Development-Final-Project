@@ -6,6 +6,8 @@ Changeling.prototype.submitChanges = function (editedMovie) {
     var root = "https://ancient-caverns-16784.herokuapp.com/movies/" + editedMovie._id;
     console.log(editedMovie);
     console.log(root);
+    var copyMovie = Object.assign({}, editedMovie);
+    delete copyMovie['_id'];
     // const errorDiv = document.getElementById('error-message');
 
     $(function() {
@@ -13,8 +15,8 @@ Changeling.prototype.submitChanges = function (editedMovie) {
             url : root,
             headers: {'x-auth-token': readCookies()}, 
             type: "PUT",
-            data: editedMovie,
-            contentType : "text/plain", 
+            data: copyMovie,
+            contentType : "application/x-www-form-urlencoded", 
             success : function (response) {
                 
                 console.log("Your edit has been saved, response: ", response);
