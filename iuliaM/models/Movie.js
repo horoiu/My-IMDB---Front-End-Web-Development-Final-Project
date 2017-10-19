@@ -1,6 +1,3 @@
-/*global $*/
-/*global newMovie*/
-
 function Movie(defaultData){
     defaultData = defaultData||{};
     this._id = defaultData._id;
@@ -30,50 +27,5 @@ function Movie(defaultData){
     this.Production = defaultData.Production;
     this.Webiste = defaultData.Website;
 }
-// 
 
-Movie.prototype.postNewMovie = function(newMovie){
- 
-    const moviesUrl = "https://ancient-caverns-16784.herokuapp.com/movies";
-    
-    $.ajax({
-        url: moviesUrl,
-        method:'POST',
-        headers:{
-            'x-auth-token':'aWKaR_QY8GExg8S52YUHkfF3ELe0aLdu',
-        },
-        data:{
-            _id : newMovie._id,
-            Title : newMovie.Title,
-            Year : newMovie.Year,
-            Rated: newMovie.Rated,
-            Released:newMovie.Released,
-            Runtime : newMovie.Runtime,
-            Genre : newMovie.Genre,
-            Director: newMovie.Director,
-            Writer: newMovie.Writer,
-            Actors: newMovie.Actors,
-            Plot:newMovie.Plot,
-            Language : newMovie.Language,
-            Country : newMovie.Country,
-            Awards:newMovie.Awards,
-            Poster : newMovie.Poster,
-            Source:newMovie.Source,
-            Value:newMovie.Value,
-            Metascore:newMovie.Metascore,
-            imdbRating : newMovie.imdbRating,
-            imdbVotes : newMovie.imdbVotes,
-            imdbID : newMovie.imdbID,
-            Type : newMovie.Type,
-            DVD: newMovie.DVD,
-            BoxOffice:newMovie.BoxOffice,
-            Production:newMovie.Production,
-            Website:newMovie.Website
-        }
-    }).then(function(){
-        alert("New movie added");
-    }).catch(function(error){
-        console.log(error);
-        alert("You need to be authenticated to be able to create a movie")
-    });
-}
+

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="/css/style.css" type="text/css" />
+		<link rel="stylesheet" href="../Styles/CSS/addMovie.css" type="text/css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/models/Movie.js"></script>
-		<script type="text/javascript" src="/models/Movies.js"></script>
-		<script type="text/javascript" src="/views/addMovie.js"></script>
+		<script type="text/javascript" src="../Models/Movie.js"></script>
+		<script type="text/javascript" src="../Models/AddMovie.js"></script>
+		<script type="text/javascript" src="../Views/addMovie.js"></script>
 	</head>
 	<body>
-		<form>
-			<ul  class = "my-form-js">
+		<p class = "message-js message"></p>
+		<form   class = "my-form-js">
+			<ul class = "my-form-css">
 			   <li>
 					<label for = "title">Title:</label>
 					<input type = "text" name = "title" class = "title required-js">
@@ -66,24 +67,22 @@
 					<label for = "poster">Poster:</label>
 					<input type="text" name="poster" class = "poster"/>
 				</li>
-				<li class = "ratings">
+				<li>
+					<label for = "ratings">Ratings</label>
+				</li>
 					<ul>
-						<li>
-							<label for = "ratings">Ratings</label>
-						</li>
 						<li>
 							<label for = "source">Source:</label>
 							<input type="text" name="source" class = "source"/>
 						</li>
-						</li>
+						<li>
 							<label for = "value">Value:</label>
 							<input type="text" name="value" class = "value"/>
 						</li>
-						</li>
+						<li>
 							<input type = "button" name = "submit" value = "Add new rating"/>
 						</li>
 					</ul>
-				</li>
 				<li>
 					<label for = "metascore">Metascore:</label>
 					<input type="text" name="metascore" class = "metascore"/>
@@ -124,6 +123,6 @@
 				</li>
 			</ul>
 		</form>
-		<p class = "message-js"></p>
+		
 	</body>
 </html>

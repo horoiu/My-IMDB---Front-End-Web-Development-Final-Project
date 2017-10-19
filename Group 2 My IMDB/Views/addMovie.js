@@ -1,36 +1,42 @@
+/*global Movie*/
+/*global MoviesAdded*/
+
 window.addEventListener("load", function() {
-   
-   const newMovie = new Movie();
    const message = document.querySelector(".message-js");
-   const movieList = new Movies();
-   
+    
+   const newMovie = new Movie();
+   const movieList = new MoviesAdded();
+  
    const addMovieBtn = document.querySelector(".submit");
    addMovieBtn.onclick = function (){
        message.innerHTML = "";
        const inputError = document.querySelectorAll(".required-js");
        createNewMovie();
-       if(checkRequired()){
-            for (let i = 0; i<inputError.length; i++){
-                inputError[i].style.backgroundColor = "#FF6347";
-            }
-            message.innerHTML = "Please complete all the required fields!";
-           
-       }else{
-            document.querySelector(".my-form-js").reset();
-            for (let i = 0; i<inputError.length; i++){
-                inputError[i].style.backgroundColor = null;
-            }
-            const moviesRequest = movieList.getMovies(newMovie);
-            moviesRequest.then(checkMovieExistInDB);
-       }
+      if(checkRequired()){
+        for (let i = 0; i<inputError.length; i++){
+            inputError[i].style.backgroundColor = "#FF6347";
+        }
+        message.innerHTML = "Please complete all the required fields!";
+       
+   }else{
+        document.querySelector(".my-form-js").reset();
+        for (let i = 0; i<inputError.length; i++){
+            inputError[i].style.backgroundColor = null;
+        }
+        const moviesRequest = movieList.getMovies(newMovie);
+        moviesRequest.then(checkMovieExistInDB);
    }
+}
+
    function checkMovieExistInDB(moviesRequest){
-            if (movieList.moviesAdded.length>0){
-                message.innerHTML = "This movie exits in database";
-            }
-            else{
-                newMovie.postNewMovie(newMovie);
-            }
+        if (movieList.moviesAdded.length>0){
+            message.innerHTML = "This movie exits in database.";
+        }
+        else{
+            newMovie.postNewMovie(newMovie);
+            message.innerHTML = "New movie added!"
+            message.style.backgroundColor = "#7FFFD4";
+        }
    }
    
    function createNewMovie(){
@@ -61,12 +67,16 @@ window.addEventListener("load", function() {
        newMovie.Production = document.querySelector(".production").value;
        newMovie.Webiste = document.querySelector(".website").value;
    }
+   
    function checkRequired(){
-        if ((newMovie.title === "")||(newMovie.Year === "")||(newMovie.Runtime ==="")||
-       (newMovie.Language === "")||(newMovie.Country === "")||(newMovie.Type === "")||
-       (newMovie.Genre === ""))
-       {    
-            return true;
-       }
+       if ((newMovie.title === "")||(newMovie.Year === "")||(newMovie.Runtime ==="")||
+   (newMovie.Language === "")||(newMovie.Country === "")||(newMovie.Type === "")||
+   (newMovie.Genre === ""))
+   {    
+        return true;
    }
+   }
+   
+  
+
 });
