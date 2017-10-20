@@ -2,19 +2,30 @@
 <html>
     <head>
         <title>Movie Details</title>
+        <link rel="stylesheet" href="../Styles/CSS/movieDetails.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="icon" href="http://cdn.onlinewebfonts.com/svg/img_497562.png">
         <script type="text/javascript" src="../Models/Movie.js"></script>
         <script type="text/javascript" src="../Models/Get_Movie_Details.js"></script>
         <script type="text/javascript" src="../Views/movieDetails.js"></script>
+        <script type="text/javascript" src="../Views/editMovie.js"></script>
     </head>
     <body>
         <div id="movieDetails-container">
-            <img title="Poster"></img>
-            <p title="Plot"> <b>Plot: </b> </p>
-            <p title="Director"><b>Director: </b></p>
-            <p title="Actors"><b>Actors: </b></p>
-            <p title="imdbRating"><b>imdbRating: </b></p>
+            <div class="details-description">
+            <img title="Poster" class="details-img"></img>
+            </div>
+            <div class="details-description">
+                <p title="Plot"> <b>Plot: </b> </p>
+                <p title="Director"><b>Director: </b></p>
+                <p title="Actors"><b>Actors: </b></p>
+                <p title="imdbRating"><b>imdbRating: </b></p>
+                <p title="Year"><b>Year: </b></p>
+            </div>
+            <div class="registered-options">
+                <button type="button" class="modify-buttons" class="final-edit">Edit</button>
+                <button type="button"class="modify-buttons" >Delete</button>
+            </div>
         </div>
     </body>
 </html>

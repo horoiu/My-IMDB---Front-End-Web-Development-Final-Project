@@ -1,0 +1,6 @@
+.movieDetails-container {
+    display: block;
+}
+.details-description, .registered-options {
+    display: inline-block;
+}

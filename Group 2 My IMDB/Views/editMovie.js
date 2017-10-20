@@ -1,17 +1,17 @@
 /*global MovieDetails Movie Changeling */
-window.addEventListener("load", function() {
+// window.addEventListener("load", function() {
 
-var url = window.location.href;
-/* get id from url */
-var index = url.indexOf("=")+1;
-var id = url.substr(index);
-console.log(id);
+// var url = window.location.href;
+// /* get id from url */
+// var index = url.indexOf("=")+1;
+// var id = url.substr(index);
+// console.log(id);
 
+function editMe(id) {
 
 /* GET movie based on it's id */
 var movie = new MovieDetails;
 movie.getDetails(id).then(renderMovie);
-
 /*      Render Edit Page with DB info       */
 function renderMovie(response) {
     var movieObject = response.reqMovie;
@@ -66,5 +66,6 @@ function renderMovie(response) {
     
     
 }
-});
+// }); /* window on load function end*/
 
+}
