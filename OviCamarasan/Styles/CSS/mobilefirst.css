@@ -1,0 +1,147 @@
+/* 
+    Header
+*/
+.site-header{
+    background-color: #000;
+    color: #fff;
+}
+
+.site-branding{
+    display: flex;
+    align-items: center;
+    padding-top: .6em;
+}
+
+.site-title {
+    margin: 0 .5em;
+}
+
+.site-description {
+    margin: 0;
+    padding-right: 1em;
+    font-size: .9em;
+    font-style: italic;
+    text-transform: lowercase;
+    font-weight: 100;
+}
+
+/* 
+    Nav
+*/
+
+.site-menu {
+    width: 100%;
+    background-color: #000;
+}
+
+.site-menu ul {
+    margin-bottom: 0;
+    padding-right: 40px;
+    text-align: center;
+}
+
+.site-menu li a {
+    color: white;
+    padding: .6em 1em;
+}
+    
+.site-menu li a:hover {
+    background: rgb(36, 31, 31);
+}
+
+/* 
+    error message"
+*/
+
+.error-message-full {
+    display: none;
+}
+
+.error-message-mini {
+    display: flex;
+    font-size: 1.2em;
+    justify-content: space-around;
+    padding: 2px;
+    background-color: rgb(228, 231, 45);
+    color: red;
+    border: 1px solid red;
+}
+
+/* 
+    serach and login
+*/
+
+.site-search-login {
+    background-color: #000;
+    font-size: 0.75em;
+    padding: 1em;
+}
+
+/* .search-input,
+.username-input,
+.password-input { */
+.general-input{
+    width: 100%;
+    padding: .6em 1em .6em 1em;
+    margin-bottom: 0.1em;
+    border: none;
+    box-sizing: border-box;
+}
+
+.form-btn{
+    display: flex;
+}
+
+/* .search-btn,
+select,
+.login-btn,
+.register-btn  { */
+.general-btn {
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+    padding: .6em 1em;
+    border: none;
+    margin: 0.4em;
+    box-sizing: border-box;
+    flex-grow: 1;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.general-btn:hover{
+    background: rgb(36, 31, 31);
+}
+
+/* 
+    footer
+*/
+
+.site-footer {
+    background-color: #000;
+    color: #fff;
+}
+
+.classmates {
+    width: 80%;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.classmates li a {
+    flex-basis: 1 0 auto;
+    color: white;
+    padding: .6em 1em;
+}
+
+.classmates li a:hover {
+    background: rgb(36, 31, 31);
+}
+
+.image-footer {
+    width: 50px; 
+    height:50px; 
+    border-radius:50%;
+}
