@@ -14,6 +14,14 @@ movie.getDetails(id).then(renderMovie);
 function renderMovie(response) {
     var movieObject = response.reqMovie;
     console.log(movieObject);
+    var container=document.getElementById("movieDetails-container");
+    var elements = container.children;
+    for (var i=0; i<elements.length; i++) {
+        if (elements[i].title === "Poster") {
+            elements[i].setAttribute("src", movieObject[elements[i].title]);
+        }
+        elements[i].innerHTML += movieObject[elements[i].title];
+    }
 }
 
 
