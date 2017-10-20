@@ -13,7 +13,6 @@ movie.getDetails(id).then(renderMovie);
 
 function renderMovie(response) {
     var movieObject = response.reqMovie;
-    console.log(movieObject);
     var containerDivs = document.getElementsByClassName("details-description");
     for (var j=0; j<containerDivs.length; j++) {
         var elements = containerDivs[j].children;
@@ -24,8 +23,16 @@ function renderMovie(response) {
             elements[i].innerHTML += movieObject[elements[i].title];
         }
     }
-    var editBtn = document.getElementsByClassName("final-edit")[0];
-    editBtn.addEventListener("click", editMe(id));
+    var editMovieBtn = document.getElementById("edit-movie");
+    editMovieBtn.addEventListener("click", function(){
+         window.open("./editMovie.html?id="+id, "_blank");    /* edit movie - temporary */
+    });
 }
 });
+
+
+
+
+
+
 
