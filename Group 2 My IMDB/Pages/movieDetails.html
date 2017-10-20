@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Movie Details</title>
-        <link rel="stylesheet" href="../Styles/CSS/movieDetails.css" type="text/css" />
+        <link rel="stylesheet" href="../Styles/App.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="icon" href="http://cdn.onlinewebfonts.com/svg/img_497562.png">
         <script type="text/javascript" src="../Models/Movie.js"></script>
@@ -11,9 +11,14 @@
         <script type="text/javascript" src="../Views/editMovie.js"></script>
     </head>
     <body>
+         <header class="site-header">
+            <div class="site-branding" title="The site title">
+                <h1 class="site-title"><a href="index.html">IMDB</a></h1>
+            </div>
+        </header>
         <div id="movieDetails-container">
             <div class="details-description">
-            <img title="Poster" class="details-img"></img>
+                <img title="Poster" class="details-img">
             </div>
             <div class="details-description">
                 <p title="Plot"> <b>Plot: </b> </p>
@@ -23,8 +28,8 @@
                 <p title="Year"><b>Year: </b></p>
             </div>
             <div class="registered-options">
-                <button type="button" class="modify-buttons" id="edit-movie">Edit</button>
-                <button type="button"class="modify-buttons" >Delete</button>
+                <button type="button" class="modify-buttons edit-button" id="edit-movie">&#128393; Edit</button>
+                <button type="button"class="modify-buttons delete-button" >&#128465; Delete</button>
             </div>
         </div>
     </body>

@@ -1,6 +1,44 @@
-.movieDetails-container {
-    display: block;
-}
-.details-description, .registered-options {
+#movieDetails-container {
     display: inline-block;
+    margin-top: 1%;
+}
+
+.details-description p, .registered-options{
+    margin-left: 28%;
+}
+/* title anchor styling */
+.site-title a{
+    color: #fff;
+}
+/* img */
+
+.details-description img[title="Poster"]{
+    max-width: 25%;
+    float: left;
+}
+/* edit/delete buttons styles */
+
+.modify-buttons {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50em;
+    color: #fff;
+}
+.edit-button{
+    background-color: #3598DB;
+    border-color: #0C417C;
+    background-image: linear-gradient(#2d2fce,#0C417C);
+}
+
+.delete-button{
+    border-color: #b53f3a;
+    border-bottom-color: #a0302a;
+    background-color: #dc5f59;
+    background-image: linear-gradient(#dc5f59, #b33630);
 }

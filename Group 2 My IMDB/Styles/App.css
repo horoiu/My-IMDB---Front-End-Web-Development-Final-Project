@@ -9,6 +9,7 @@ Import our own css files
 @import url('CSS/searchlogin.css'); */
 @import url('CSS/mediaquery.css');
 @import url('CSS/search.css');
+@import url('CSS/movieDetails.css');
 
 .hide {
     display: none;
