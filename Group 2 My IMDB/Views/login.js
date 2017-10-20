@@ -20,6 +20,7 @@ window.addEventListener('load', function() {
         const deleteMovieButton = document.getElementById('delete-movie-btn');
         const addMovieButton = document.getElementById('add-movie-btn');
         
+        // check the user status (loggedIn or loggedOut) 
         cookieCheck();
         
         
@@ -89,11 +90,11 @@ window.addEventListener('load', function() {
                     contentType: 'application/x-www-form-urlencoded',
                     success: function(response) {
                         console.log('LogIn -OK response: ', response);
-                        //console.log(response.accessToken);
-                        
+
                         // set cookie with 'accessToken' value
                         document.cookie = 'accessToken=' + response.accessToken;
              
+                        // after successfully loggedIn, hide the LogIn & Register button and input fields
                         hideElements();
     
                         // - do whatever you want to do after you are LOGGED-IN
@@ -102,9 +103,10 @@ window.addEventListener('load', function() {
                     },
                     error: function(response) {
                         console.log('LogIn -ERROR response: ', response);
-                        // show error message
+                        // show error message on desktop resolution
                         errorDivFull.classList.remove('hide');
                         errorDivFull.innerHTML = "Ooopsss... Something went wrong !!! Please check your 'Username' and 'Password' and try again.";
+                        // show error message on mobile resolution
                         errorDivMini.classList.remove('hide');
                         errorDivMini.innerHTML = "Ooopsss... Something went wrong !!! Please check your 'Username' and 'Password' and try again.";
                         
@@ -143,12 +145,13 @@ window.addEventListener('load', function() {
                     },
                     error: function(response) {
                         console.log('LogOut -ERROR response: ', response);
-                        // show error message
+                        
+                        // show error message on desktop resolutione
                         errorDivFull.classList.remove('hide');
                         errorDivFull.innerHTML = "OOOOps. Something went wrong !!! Please try again.";
+                        // show error message on mobile resolution
                         errorDivMini.classList.remove('hide');
                         errorDivMini.innerHTML = "OOOOps. Something went wrong !!! Please try again.";
-                        //alert("OOOOps. Something went wrong !!! Please try again.");
                     },
                 }); // end of AJAX call
             });  // end of jQuerry function
@@ -185,12 +188,13 @@ window.addEventListener('load', function() {
                     },
                     error: function(response) {
                         console.log('Register -ERROR response: ', response);
-                        //alert("OOOOps. 'Username' already assigned !!! Please try another 'Username'.");
+                        
+                        // show error message on desktop resolution
                         errorDivFull.classList.remove('hide');
                         errorDivFull.innerHTML = "Ooopsss... 'Username' already assigned !!! Please try another 'Username'.";
+                        // show error message on mobile resolution
                         errorDivMini.classList.remove('hide');
                         errorDivMini.innerHTML = "Ooopsss... 'Username' already assigned !!! Please try another 'Username'.";
-         
                         
                         // empty 'Username' and 'Password' fields
                         user.value = '';
@@ -209,16 +213,18 @@ window.addEventListener('load', function() {
             pass.classList.add('hide');
             logInButton.classList.add('hide');
             registerButton.classList.add('hide');
+            
+            // remove class 'hide' to show buttons available only for logged users
             editMovieButton.classList.remove('hide');
             deleteMovieButton.classList.remove('hide');
             addMovieButton.classList.remove('hide');
-            // show LogOut button
             logOutButton.classList.remove('hide');
 
-            
             //hide error message DIV and reset HTML content
+            // desktop resolution
             errorDivFull.classList.add('hide');
             errorDivFull.innerHTML = "";
+            // on mobile resolution
             errorDivMini.classList.add('hide');
             errorDivMini.innerHTML = "";
             
@@ -237,10 +243,10 @@ window.addEventListener('load', function() {
             logInButton.classList.remove('hide');
             registerButton.classList.remove('hide');
             
+            // add class 'hide' to buttons as user is loggedOut
             editMovieButton.classList.add('hide');
             deleteMovieButton.classList.add('hide');
             addMovieButton.classList.add('hide');
-            // hide LogOut button
             logOutButton.classList.add('hide');
 
             return;
@@ -248,8 +254,10 @@ window.addEventListener('load', function() {
     
         
         function cookieCheck() {
+            // if cookie 'accessToken' is empty or undefined, then do nothing, wait for user to LogIn/Register
+            // if cookie 'accessToken' has value, then go to 'Administrator' mode: hide input fields and reveal Add/Edit/Delete buttons
+
             if (readCookies() ==="" || readCookies() === undefined) {
-                //console.log('accessToken: ', readCookies());
                 return;
             }
             else { 
@@ -259,16 +267,21 @@ window.addEventListener('load', function() {
     
 
         function readCookies() {
+            // get the cookies string and split them by ';' into a new array
             let cookiesString = document.cookie;
             const cookiesArray = cookiesString.split('; ');
             var cookies = {};
-
+            
+            // itterate each array element and split them by '='
             cookiesArray.forEach(function(c) {
                 let cookie = c.split('=');
                 cookies[cookie[0]] = cookie[1];
             });
             
+            // assign the 'cookie.accessToken' value to 'accessToken' 
             let accessToken = cookies.accessToken;
+            
+            // return the accessToken value to 
             return accessToken;
         }
             
