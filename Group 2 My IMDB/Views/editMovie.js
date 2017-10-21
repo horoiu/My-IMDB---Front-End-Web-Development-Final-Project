@@ -5,7 +5,7 @@ var url = window.location.href;
  /* get id from url */
 var index = url.indexOf("=")+1;
 var id = url.substr(index);
-console.log(id);
+//console.log(id);
 
 // function editMe(id) {}
 
@@ -26,7 +26,7 @@ function renderMovie(response) {
     var editBtn = document.getElementsByClassName("edit-btn-js");
     for (var i=0; i<editBtn.length; i++) {
         editBtn[i].addEventListener("click", function(e){
-            e.preventDefault();
+            event.preventDefault();
             var pToEdit = e.target.previousElementSibling;
             // pToEdit.setAttribute("contenteditable", true);
             pToEdit.setAttribute("class", "editable");

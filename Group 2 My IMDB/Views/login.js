@@ -16,8 +16,8 @@ window.addEventListener('load', function() {
         
         const errorDivFull = document.getElementById('error-message-full');
         const errorDivMini = document.getElementById('error-message-mini');
-        const editMovieButton = document.getElementById('edit-movie-btn');
-        const deleteMovieButton = document.getElementById('delete-movie-btn');
+        // const editMovieButton = document.getElementById('edit-movie-btn');
+        //const deleteMovieButton = document.getElementById('delete-movie-btn');
         const addMovieButton = document.getElementById('add-movie-btn');
         
         // check the user status (loggedIn or loggedOut) 
@@ -96,10 +96,6 @@ window.addEventListener('load', function() {
              
                         // after successfully loggedIn, hide the LogIn & Register button and input fields
                         hideElements();
-    
-                        // - do whatever you want to do after you are LOGGED-IN
-                        // - activate ADD, EDIT & DELETE movie buttons
-                        
                     },
                     error: function(response) {
                         console.log('LogIn -ERROR response: ', response);
@@ -138,10 +134,7 @@ window.addEventListener('load', function() {
                         showElements();
                         // delete cookie
                         document.cookie = 'accessToken=';
-                        
-                        // - do whatever you want to do after you are LOGGED-OUT
-                        // - deactivate ADD, EDIT & DELETE movie buttons
-                        
+   
                     },
                     error: function(response) {
                         console.log('LogOut -ERROR response: ', response);
@@ -182,9 +175,6 @@ window.addEventListener('load', function() {
                         
                         hideElements();
                         
-                        // - do whatever you want to do after you are REGISTERED
-                        // - activate ADD, EDIT & DELETE movie buttons
-                        
                     },
                     error: function(response) {
                         console.log('Register -ERROR response: ', response);
@@ -215,8 +205,8 @@ window.addEventListener('load', function() {
             registerButton.classList.add('hide');
             
             // remove class 'hide' to show buttons available only for logged users
-            editMovieButton.classList.remove('hide');
-            deleteMovieButton.classList.remove('hide');
+            //editMovieButton.classList.remove('hide');
+            //deleteMovieButton.classList.remove('hide');
             addMovieButton.classList.remove('hide');
             logOutButton.classList.remove('hide');
 
@@ -244,8 +234,8 @@ window.addEventListener('load', function() {
             registerButton.classList.remove('hide');
             
             // add class 'hide' to buttons as user is loggedOut
-            editMovieButton.classList.add('hide');
-            deleteMovieButton.classList.add('hide');
+            //editMovieButton.classList.add('hide');
+            //deleteMovieButton.classList.add('hide');
             addMovieButton.classList.add('hide');
             logOutButton.classList.add('hide');
 
