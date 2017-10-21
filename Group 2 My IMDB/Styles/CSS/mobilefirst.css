@@ -122,12 +122,17 @@ select,
     color: #fff;
 }
 
+footer > h2{
+    color: green;
+    padding: 15px;
+}
+
 .classmates {
-    width: 80%;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .classmates li a {
