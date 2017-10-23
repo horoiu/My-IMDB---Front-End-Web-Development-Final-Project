@@ -48,7 +48,6 @@ window.addEventListener("load", function() {
    
    //get the input from the user
    function createNewMovie(){
-       //newMovie._id = Date.now()*Math.random();
        newMovie.Title =document.querySelector(".title").value;
        newMovie.Year = document.querySelector(".year").value;
        newMovie.Rated = document.querySelector(".rated").value;
@@ -74,6 +73,17 @@ window.addEventListener("load", function() {
        newMovie.BoxOffice = document.querySelector(".box_office").value;
        newMovie.Production = document.querySelector(".production").value;
        newMovie.Webiste = document.querySelector(".website").value;
+       
+       if ((newMovie.Rated === "")||(newMovie.Released === "")||(newMovie.Director === "")
+            ||(newMovie.Actors === "")||(newMovie.Writer === "")||(newMovie.Plot==="")
+            ||(newMovie.Awards==="")||(newMovie.Poster==="")||(newMovie.Source==="")||
+            (newMovie.Value==="")||(newMovie.Metascore==="")||(newMovie.imdbRating==="")
+            ||(newMovie.imdbVotes==="")||(newMovie.imdbID==="")||(newMovie.DVD==="")
+            ||(newMovie.BoxOffice==="")||(newMovie.Production==="")||(newMovie.Webiste
+            ==="")){
+               let undef = "";
+               undef.replace("",null);
+            }
    }
    
    //form validation
