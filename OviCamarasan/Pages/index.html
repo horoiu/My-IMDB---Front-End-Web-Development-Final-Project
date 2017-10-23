@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>IMDB</title>
-        <link rel="icon" href="https://cdn.onlinewebfonts.com/svg/img_497562.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="icon" href="http://cdn.onlinewebfonts.com/svg/img_497562.png">
         <link rel="stylesheet" href="../Styles/App.css">
         <script type="text/javascript" src="../Views/login.js"></script> 
         <script type="text/javascript" src="../Models/Movie.js"></script>
         <script type="text/javascript" src="../Models/Movies.js"></script>
         <script type="text/javascript" src="../Views/newSearch.js"></script>
         <script type="text/javascript" src="../Models/Get_Movie_Details.js"></script>
-        
+        <title>IMDB</title>
     </head>
     <body>
         <header class="site-header">
             <div class="site-branding" title="The site title">
-                <h1 class="site-title"><a href="index.html">IMDB</a></h1>
+                <h1 class="site-title">IMDB</h1>
                 <p class="site-description">What is the best film you've ever seen?</p>
             </div>
             <nav class="site-menu">
                 <ul>
-                    <!--li>
+                    <li>
                         <a id="edit-movie-btn" class="hide" href="#">Edit Movie</a>
                     </li>
                     <li>
                         <a id="delete-movie-btn" class="hide" href="#">Delete Movie</a>
-                    </li-->
+                    </li>
                     <li>
                         <a id="add-movie-btn" class="hide" href="addMovie.html" target="_blank">Add Movie</a>
+                    </li>
+                    <li>
+                        <a id="spare-btn" href="#">Spare button</a>
                     </li>
                 </ul>
             </nav>
         </header>
      
         <div id="error-message-full" class="error-message-full error-message hide">
+            <!--span><strong>Sorry something went wrong!</strong></span-->
         </div>
     
         <section class="site-search-login">
@@ -71,6 +74,7 @@
             </form>
     
             <div id="error-message-mini" class="error-message-mini error-message hide">
+                <!--span><strong>Sorry something went wrong!</strong></span-->
             </div>
     
             <form class="login-register-form" action="search">
@@ -84,23 +88,9 @@
             </form>
         </section>
     
-        <section class="content-wrapper">
-            <div id="landing-page" class="hide">
-                <p>Landing page</p>
-            </div>
-            <div id="search-results" class="hide">
-                <p>Search result</p>
-            </div>
-            <div id="movie-details" class="hide">
-                <p>Movie details</p>
-            </div>
-            <div id="add-movie" class="hide">
-                <p>Add movie</p>
-            </div>
-            <div id="edit-movie" class="hide">
-                <p>Edit Movie</p>
-            </div>
-        </section>
+        <div class="content-wrapper">
+            <div id="search-results"></div>
+        </div>
     
         <footer class="site-footer">
             <h2> The guys: </h2>
@@ -108,7 +98,7 @@
                 <li>
                     <a href="https://www.linkedin.com/in/iulia-munteanu-6169b15b/" target="_blank">
                         <img src="https://media.licdn.com/media/p/4/005/055/19e/14c4c6a.jpg"
-                             class="image-footer" alt="Iulia Munteanu photo">
+                             class="image-footer"alt="Iulia Munteanu photo">
                     </a>
                 </li>
                 <li>
@@ -137,7 +127,7 @@
                 </li>
                 <li>
                     <a href="" target="_blank">
-                        <img src="https://i.pinimg.com/474x/e2/76/a8/e276a89e61d13d94f93250fc47827f09--despicable-me-funny-funny-minion.jpg"
+                        <img src=""
                              class="image-footer" alt="Ionut Saviuc photo">
                     </a>
                 </li>

@@ -16,18 +16,18 @@
     Header
 ----------------------------------------------------
 */
-.site-header a{
-    color: #fff;
-}
+
 .site-branding {
     display: flex;
     align-items: center;
+
 }
 
 .site-title {
     margin: 0 .5em;
     padding: .6em 1em;
 }
+
 .site-description {
     margin: 0;
     padding-right: 1em;

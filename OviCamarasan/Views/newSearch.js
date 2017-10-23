@@ -48,13 +48,7 @@ window.addEventListener("load", function() {
                 renderResults(resultsArr);
             } else {
                 console.log("No movies match your search");
-                while (parent.firstChild) {
-                    parent.removeChild(parent.firstChild);
-                }
-                let emptyResult = document.createElement("div");
-                emptyResult.innerHTML = "Sorry, no movie was found. Please try another title.";
-                parent.appendChild(emptyResult);
-            }
+              }
            
             /* render search results - clear previous search*/ 
             function renderResults(arr) {
@@ -68,17 +62,10 @@ window.addEventListener("load", function() {
                     
                     movieTitle.innerHTML = arr[i].Title;
                     renderMovie.setAttribute("id", arr[i]._id);
-                    //if there is no movie image(Poster), set a default image;
-                    if (arr[i].Poster === undefined || arr[i].Poster === "") {
-                        //console.log('if arr[i].Poster: ', arr[i].Poster);
-                        moviePoster.src = "https://www.traveldailymedia.com/usa/wp-content/themes/woohoo/images/noimg.png";
-                    } else {
-                        //console.log('else arr[i].Poster: ', arr[i].Poster);
-                        moviePoster.src = arr[i].Poster;
-                    }
+                    moviePoster.src = arr[i].Poster;
                     renderMovie.classList.add("search-results-container");
-                    moviePoster.classList.add("search-results-img");
-                    movieTitle.classList.add("movie-title-js");
+                    moviePoster.classList.add("search-results-img")
+                    movieTitle.classList.add("movie-title-js")
                     renderMovie.addEventListener("click", goToMovieDetails);
                     parent.appendChild(renderMovie);
                     renderMovie.appendChild(moviePoster);

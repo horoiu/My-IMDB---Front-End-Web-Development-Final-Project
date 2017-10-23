@@ -2,16 +2,16 @@
 window.addEventListener("load", function() {
 
 var url = window.location.href;
- /* get id from url */
+/* get id from url */
 var index = url.indexOf("=")+1;
 var id = url.substr(index);
-//console.log(id);
+console.log(id);
 
-// function editMe(id) {}
 
 /* GET movie based on it's id */
 var movie = new MovieDetails;
 movie.getDetails(id).then(renderMovie);
+
 /*      Render Edit Page with DB info       */
 function renderMovie(response) {
     var movieObject = response.reqMovie;
@@ -26,7 +26,7 @@ function renderMovie(response) {
     var editBtn = document.getElementsByClassName("edit-btn-js");
     for (var i=0; i<editBtn.length; i++) {
         editBtn[i].addEventListener("click", function(e){
-            event.preventDefault();
+            e.preventDefault();
             var pToEdit = e.target.previousElementSibling;
             // pToEdit.setAttribute("contenteditable", true);
             pToEdit.setAttribute("class", "editable");
@@ -66,5 +66,5 @@ function renderMovie(response) {
     
     
 }
-}); /* window on load function end*/
+});
 
