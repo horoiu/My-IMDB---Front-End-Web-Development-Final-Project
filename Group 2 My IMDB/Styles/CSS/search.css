@@ -19,6 +19,9 @@
     border: 1px solid #fff;
     margin: 0.3em;
 }
+.search-results-container:hover {
+    cursor: pointer;
+}
 
 /* Poster img inside search result container div */
 
