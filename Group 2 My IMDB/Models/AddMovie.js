@@ -48,7 +48,7 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
             'x-auth-token':getAccesToken(),
         },
         data:{
-            _id : newMovie._id,
+            //_id : newMovie._id,
             Title : newMovie.Title,
             Year : newMovie.Year,
             Rated: newMovie.Rated,

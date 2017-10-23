@@ -48,7 +48,7 @@ window.addEventListener("load", function() {
    
    //get the input from the user
    function createNewMovie(){
-       newMovie._id = Date.now()*Math.random();
+       //newMovie._id = Date.now()*Math.random();
        newMovie.Title =document.querySelector(".title").value;
        newMovie.Year = document.querySelector(".year").value;
        newMovie.Rated = document.querySelector(".rated").value;
