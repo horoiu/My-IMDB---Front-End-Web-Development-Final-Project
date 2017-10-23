@@ -47,8 +47,12 @@ input[type='button']:hover{
   background-color: #F5F5DC;
 }
 
+.my-form-css:p{
+  text-align: center;
+}
 /*style paragraph for error and informational messages*/
 .message{
   background-color: #F08080;
   font-size: 1.3em;
+  text-align: center;
 }
