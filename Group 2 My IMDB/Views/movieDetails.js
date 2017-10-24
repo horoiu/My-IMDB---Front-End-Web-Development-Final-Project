@@ -1,4 +1,3 @@
-/*global MovieDetails editMe */
 window.addEventListener("load", function() {
 
     const deleteMovieBtn = document.getElementById("delete-movie");
@@ -13,37 +12,6 @@ window.addEventListener("load", function() {
     /* get id from url */
     var index = url.indexOf("=")+1;
     var id = url.substr(index);
-    //console.log(id);
-    
-    /* GET movie based on it's id */
-    //var movie = new MovieDetails;
-    //movie.getDetails(id).then(renderMovie);
-    
-    // function renderMovie(response) {
-    //     console.log('inside renderMovie');
-    //     var movieObject = response.reqMovie;
-    //     var containerDivs = document.getElementsByClassName("details-description");
-    //     for (var j=0; j<containerDivs.length; j++) {
-    //         console.log('inside renderMovie for');
-    //         var elements = containerDivs[j].children;
-    //         for (var i=0; i<elements.length; i++) {
-    //             if (elements[i].title === "Poster") {
-    //                 //if there is no movie image, set a default image;
-    //                 if (movieObject.Poster === undefined || movieObject.Poster === "" ) {
-    //                     //console.log('inside');
-    //                     let imgUrl = "https://www.traveldailymedia.com/usa/wp-content/themes/woohoo/images/noimg.png";
-    //                     elements[i].setAttribute("src", imgUrl);
-    //                     //console.log('if movieObject.Poster: ', movieObject.Poster);
-    //                 } else {
-    //                     elements[i].setAttribute("src", movieObject[elements[i].title]);
-    //                     //console.log('else movieObject.Poster: ', movieObject.Poster);
-    //                 }
-    //             }
-    //             elements[i].innerHTML += movieObject[elements[i].title];
-    //         }
-    //     }
-      
-    // } // end of renderMovie function
     
     
     function cookieCheck() {

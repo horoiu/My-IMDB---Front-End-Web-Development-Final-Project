@@ -56,3 +56,7 @@
 .search-results-container:hover .movie-title-js {
     opacity: 1;
 }
+
+.hide {
+    display: none;
+}
