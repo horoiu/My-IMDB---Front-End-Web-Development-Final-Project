@@ -16,32 +16,34 @@ window.addEventListener("load", function() {
     //console.log(id);
     
     /* GET movie based on it's id */
-    var movie = new MovieDetails;
-    movie.getDetails(id).then(renderMovie);
+    //var movie = new MovieDetails;
+    //movie.getDetails(id).then(renderMovie);
     
-    function renderMovie(response) {
-        var movieObject = response.reqMovie;
-        var containerDivs = document.getElementsByClassName("details-description");
-        for (var j=0; j<containerDivs.length; j++) {
-            var elements = containerDivs[j].children;
-            for (var i=0; i<elements.length; i++) {
-                if (elements[i].title === "Poster") {
-                    //if there is no movie image, set a default image;
-                    if (movieObject.Poster === undefined || movieObject.Poster === "" ) {
-                        //console.log('inside');
-                        let imgUrl = "https://www.traveldailymedia.com/usa/wp-content/themes/woohoo/images/noimg.png";
-                        elements[i].setAttribute("src", imgUrl);
-                        //console.log('if movieObject.Poster: ', movieObject.Poster);
-                    } else {
-                        elements[i].setAttribute("src", movieObject[elements[i].title]);
-                        //console.log('else movieObject.Poster: ', movieObject.Poster);
-                    }
-                }
-                elements[i].innerHTML += movieObject[elements[i].title];
-            }
-        }
+    // function renderMovie(response) {
+    //     console.log('inside renderMovie');
+    //     var movieObject = response.reqMovie;
+    //     var containerDivs = document.getElementsByClassName("details-description");
+    //     for (var j=0; j<containerDivs.length; j++) {
+    //         console.log('inside renderMovie for');
+    //         var elements = containerDivs[j].children;
+    //         for (var i=0; i<elements.length; i++) {
+    //             if (elements[i].title === "Poster") {
+    //                 //if there is no movie image, set a default image;
+    //                 if (movieObject.Poster === undefined || movieObject.Poster === "" ) {
+    //                     //console.log('inside');
+    //                     let imgUrl = "https://www.traveldailymedia.com/usa/wp-content/themes/woohoo/images/noimg.png";
+    //                     elements[i].setAttribute("src", imgUrl);
+    //                     //console.log('if movieObject.Poster: ', movieObject.Poster);
+    //                 } else {
+    //                     elements[i].setAttribute("src", movieObject[elements[i].title]);
+    //                     //console.log('else movieObject.Poster: ', movieObject.Poster);
+    //                 }
+    //             }
+    //             elements[i].innerHTML += movieObject[elements[i].title];
+    //         }
+    //     }
       
-    } // end of renderMovie function
+    // } // end of renderMovie function
     
     
     function cookieCheck() {

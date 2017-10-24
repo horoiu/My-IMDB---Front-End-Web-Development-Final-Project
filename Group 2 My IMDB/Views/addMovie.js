@@ -32,7 +32,7 @@ window.addEventListener("load", function() {
         const moviesRequest = movieList.getMovies(newMovie);
         moviesRequest.then(checkMovieExistInDB);
    }
-}
+};
     //if the movie to be added exists in DB, throw informational message
     //if not, post new movie in DB
    function checkMovieExistInDB(moviesRequest){
@@ -41,7 +41,7 @@ window.addEventListener("load", function() {
         }
         else{
             newMovie.postNewMovie(newMovie);
-            message.innerHTML = "New movie added!"
+            message.innerHTML = "New movie added!";
             message.style.backgroundColor = "#7FFFD4";
         }
    }
@@ -72,14 +72,14 @@ window.addEventListener("load", function() {
        newMovie.DVD = document.querySelector(".dvd").value;
        newMovie.BoxOffice = document.querySelector(".box_office").value;
        newMovie.Production = document.querySelector(".production").value;
-       newMovie.Webiste = document.querySelector(".website").value;
+       newMovie.Website = document.querySelector(".website").value;
        
        if ((newMovie.Rated === "")||(newMovie.Released === "")||(newMovie.Director === "")
             ||(newMovie.Actors === "")||(newMovie.Writer === "")||(newMovie.Plot==="")
             ||(newMovie.Awards==="")||(newMovie.Poster==="")||(newMovie.Source==="")||
             (newMovie.Value==="")||(newMovie.Metascore==="")||(newMovie.imdbRating==="")
             ||(newMovie.imdbVotes==="")||(newMovie.imdbID==="")||(newMovie.DVD==="")
-            ||(newMovie.BoxOffice==="")||(newMovie.Production==="")||(newMovie.Webiste
+            ||(newMovie.BoxOffice==="")||(newMovie.Production==="")||(newMovie.Website
             ==="")){
                let undef = "";
                undef.replace("",null);

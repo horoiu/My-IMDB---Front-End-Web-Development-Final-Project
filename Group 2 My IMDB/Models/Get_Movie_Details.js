@@ -8,6 +8,7 @@ MovieDetails.prototype.getDetails = function(id) {
     return $.get(root).then(initMovie);
     function initMovie(response) {
         self.reqMovie = new Movie(response);
+        console.log('inside initMovie');
         return self;
     }
 

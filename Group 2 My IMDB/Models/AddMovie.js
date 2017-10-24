@@ -33,7 +33,7 @@ MoviesAdded.prototype.getMovies = function(newMovie){
             that.moviesAdded = [];
         }
     }
-}
+};
 
 /*call API to add the user's movie*/
 Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
@@ -77,9 +77,10 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
         }
     }).then(function(){
         console.log("New movie added");
+        renderLandingPage();
     }).catch(function(error){
         console.log(error);
-        alert("You need to be authenticated to be able to create a movie")
+        alert("You need to be authenticated to be able to create a movie");
     });
     
     /*read the acces token cookie*/
@@ -95,4 +96,21 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
             return accessToken;
                
         }
-}
+        
+    function renderLandingPage() {
+            //event.preventDefault();
+            
+            const landingPageDiv = document.getElementById('landing-page');
+            const searchResultsDiv = document.getElementById('search-results');
+            const movieDetailsDiv = document.getElementById('movie-details');
+            const addMovieDiv = document.getElementById('add-movie');
+            const editMovieDiv = document.getElementById('edit-movie');
+            
+            landingPageDiv.classList.remove('hide');
+            
+            searchResultsDiv.classList.add('hide');
+            addMovieDiv.classList.add('hide');
+            movieDetailsDiv.classList.add('hide');
+            editMovieDiv.classList.add('hide');
+        }
+};
