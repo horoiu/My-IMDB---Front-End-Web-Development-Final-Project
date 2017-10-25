@@ -1,4 +1,4 @@
-/* global DataBase MovieDetails */
+/* global DataBase MovieDetails history */
 window.addEventListener("load", function() {
     
     var searchBtn = document.getElementsByClassName("js_search_btn")[0];
@@ -133,8 +133,7 @@ window.addEventListener("load", function() {
                             elements[i].innerHTML += movieObject[elements[i].title];
                         }
                     }
-                    history.pushState({}, "movie","movie_details?id:"+ movieObject._id +
-                                                  "&title:" + movieObject.Title);
+                    history.pushState({}, "movie","movie_details?title:"+ movieObject.Title + "&id=" + movieObject._id);                              
                 } // end of renderMovie function
     
    

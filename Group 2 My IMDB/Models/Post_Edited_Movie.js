@@ -2,13 +2,14 @@
 function Changeling () {
 }
 
+
+
 Changeling.prototype.submitChanges = function (editedMovie) {
     var root = "https://ancient-caverns-16784.herokuapp.com/movies/" + editedMovie._id;
-    console.log(editedMovie);
-    console.log(root);
+    //console.log(editedMovie);
+    //console.log(root);
     var copyMovie = Object.assign({}, editedMovie);
     delete copyMovie['_id'];
-    // const errorDiv = document.getElementById('error-message');
 
     $(function() {
         $.ajax({
@@ -18,18 +19,16 @@ Changeling.prototype.submitChanges = function (editedMovie) {
             data: copyMovie,
             contentType : "application/x-www-form-urlencoded", 
             success : function (response) {
-                
                 console.log("Your edit has been saved, response: ", response);
-                //hide the errorMessage DIV and emtpty HTML message, if any
-                // errorDiv.classList.add('hide');
-                // errorDiv.innerHTML = ""; 
+                let text = "Your edit has been saved !!!";
+                showMessage(text);
+                // reload index.html after moviDetails was successefully edited
+                location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
             },
             error : function(response) {
                 console.log("Edit movie error - ", response);
-                // show errorMessage DIV and print the error message
-                // errorDiv.classList.remove('hide');
-                // errorDiv.innerHTML = "You shouldn't be able to see me! Only auth users can edit and see edit option / No-changes should not be submitted";
-                //alert("You shouldn't be able to see me! Only auth users can edit and see edit option / No-changes should not be submitted");
+                let text = "OOoopsss ... Something went wrong and no changes were done !!!";
+                showMessage(text);
             }
         });  // end of AJAX call
     });  // end of jQuerry function    
@@ -47,4 +46,25 @@ function readCookies() {
     
     let accessToken = cookies.accessToken;
     return accessToken;
-}        
+}    
+
+
+function showMessage(text) {
+    const errorDivFull = document.getElementById('error-message-full');
+    const errorDivMini = document.getElementById('error-message-mini');
+    
+     //show the errorMessage DIV and display message
+    errorDivFull.classList.remove('hide');
+    errorDivMini.classList.remove('hide');
+    errorDivFull.innerHTML = text; 
+    errorDivMini.innerHTML = text; 
+    
+    //emtpty HTML message and hide errorMessage DIV
+    setTimeout(function() {
+        errorDivFull.innerHTML = ""; 
+        errorDivMini.innerHTML = ""; 
+        errorDivFull.classList.add('hide');
+        errorDivMini.classList.add('hide');
+        
+    }, 5000);
+}

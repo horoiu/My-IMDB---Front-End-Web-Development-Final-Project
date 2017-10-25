@@ -6,11 +6,14 @@ window.addEventListener("load", function() {
 
 
     function editMovie() {
-
+        console.log('inside editMovie function');
+        renderEditMovie();
+        
         var url = window.location.href;
          /* get id from url */
         var index = url.indexOf("=")+1;
         var id = url.substr(index);
+        console.log('inside editMovie function from editMovie.js; id: ', id);
         
         /* GET movie based on it's id */
         var movie = new MovieDetails;
@@ -18,6 +21,7 @@ window.addEventListener("load", function() {
         
         /*      Render Edit Page with DB info       */
         function renderMovie(response) {
+            console.log('inside renderMovie function from editMovie.js; id: ', id);
             var movieObject = response.reqMovie;
             var pArr = document.getElementsByTagName("p");
             var inputArr = document.getElementsByTagName("input");
@@ -56,19 +60,44 @@ window.addEventListener("load", function() {
             
             /* rendering Ratings[] list */
             /* hardcoded HTML, 3x Rating divs; some movies only have 2 => undefined values, fix if time  */
-            var ratingsList = document.getElementById("ratings");
-            var pRatings = ratingsList.getElementsByTagName("p");
-            // console.log(pRatings);
-            var j=0;
-            for (var i=0; movieObject.Ratings.length; i++) {
-                pRatings[j].innerHTML = movieObject.Ratings[i].Source;
-                j++;
-                pRatings[j].innerHTML = movieObject.Ratings[i].Value;
-                j++;
-            }
-        }
+            
+            // var ratingsList = document.getElementById("ratings");
+            // var pRatings = ratingsList.getElementsByTagName("p");
+            // // console.log(pRatings);
+            // var j=0;
+            // for (var i=0; movieObject.Ratings.length; i++) {
+            //     pRatings[j].innerHTML = movieObject.Ratings[i].Source;
+            //     j++;
+            //     pRatings[j].innerHTML = movieObject.Ratings[i].Value;
+            //     j++;
+            // }
+            
+        } // end of renderMovie function
     
-    }
+    } // end of editMovie function
+    
+    
+    function renderEditMovie() {
+        console.log('inside renderEditMovie of editMovie.js');
+        const landingPageDiv = document.getElementById('landing-page');
+        const searchResultsDiv = document.getElementById('search-results');
+        const movieDetailsDiv = document.getElementById('movie-details');
+        const addMovieDiv = document.getElementById('add-movie-div');
+        const editMovieDiv = document.getElementById('edit-movie-div');
+        
+        movieDetailsDiv.classList.add('hide');
+        addMovieDiv.classList.add('hide');
+        landingPageDiv.classList.add('hide');
+        searchResultsDiv.classList.add('hide');
+        editMovieDiv.classList.remove('hide');
+        
+        // // delete all movies from search-results DIV when displaying movieDetails
+        // while (searchResultsDiv.hasChildNodes()) {
+        //     searchResultsDiv.removeChild(searchResultsDiv.lastChild);
+        // }
+        // cookieCheck();
+    } 
+    
     
 }); /* window on load function end*/
 
