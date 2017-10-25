@@ -31,8 +31,9 @@
 
 .site-menu {
     width: 70%;
-    background-color: #000;
+    background-color: #000git;
 }
+
 
 .site-menu ul {
     margin-bottom: 0;
@@ -120,17 +121,20 @@ select,
 .site-footer {
     background-color: #000;
     color: #fff;
+    height:140px;
 }
 
 footer > h2{
     color: green;
-    padding: 15px;
+    padding: 5px 10px 0;
+    text-align: center;
 }
 
 .classmates {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
+    width: 800px;
     flex-flow: row wrap;
     justify-content: space-around;
 }
@@ -138,7 +142,7 @@ footer > h2{
 .classmates li a {
     flex-basis: 1 0 auto;
     color: white;
-    padding: .6em 1em;
+    padding: 0 1em;
 }
 
 .classmates li a:hover {
@@ -146,7 +150,7 @@ footer > h2{
 }
 
 .image-footer {
-    width: 50px; 
-    height:50px; 
+    width: 40px; 
+    height:40px; 
     border-radius:50%;
 }
