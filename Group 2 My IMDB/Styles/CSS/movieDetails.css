@@ -1,6 +1,7 @@
 #movieDetails-container {
     width: 90%;
     margin: 20px auto;
+    margin-bottom: 100px;
 }
 
 .details-description{
@@ -91,6 +92,7 @@ p[title="Year"]::before{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 100px;
     }
 
     .details-description {
@@ -122,6 +124,7 @@ p[title="Year"]::before{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 100px;
         }
     
         .details-description {

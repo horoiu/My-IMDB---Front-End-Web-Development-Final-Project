@@ -3,6 +3,7 @@
 #search-results {
     display: flex;
     margin: 0 auto;
+    margin-bottom: 100px;
     width: 90%;
     list-style: none;
     flex-direction: column;
@@ -71,6 +72,7 @@
     #search-results {
         display: flex;
         margin: 0 auto;
+        margin-bottom: 100px;
         width: 90%;
         list-style: none;
         display: flex;

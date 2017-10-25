@@ -51,6 +51,7 @@ p {
     background:linear-gradient(#ff4d4d,#ff0000);
     color: #fff;
     border-color:#ff4d4d;
+    margin-bottom: 100px;
 }
 #submit-changes-js {
     border-radius: 50em;
