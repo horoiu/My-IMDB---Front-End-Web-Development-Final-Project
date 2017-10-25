@@ -2,11 +2,11 @@
 /*global MoviesAdded*/
 
 window.addEventListener("load", function() {
-
+    
    const message = document.querySelector(".message-js");
    const newMovie = new Movie();
    const movieList = new MoviesAdded();
-  
+   
    const addMovieBtn = document.querySelector(".submit");
    addMovieBtn.onclick = function (){
        /*message should be empty after every script execution*/

@@ -23,6 +23,7 @@ window.addEventListener('load', function() {
         
         function renderAddMovie(e) {
             e.preventDefault();
+            history.pushState({}, "movie","add_movie");
             addMovieDiv.classList.remove('hide');
             
             landingPageDiv.classList.add('hide');

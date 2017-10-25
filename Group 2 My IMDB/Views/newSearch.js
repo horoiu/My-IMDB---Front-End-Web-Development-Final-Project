@@ -133,6 +133,8 @@ window.addEventListener("load", function() {
                             elements[i].innerHTML += movieObject[elements[i].title];
                         }
                     }
+                    history.pushState({}, "movie","movie_details?id:"+ movieObject._id +
+                                                  "&title:" + movieObject.Title);
                 } // end of renderMovie function
     
    
@@ -142,9 +144,8 @@ window.addEventListener("load", function() {
                 const movieDetailsDiv = document.getElementById('movie-details');
                 const addMovieDiv = document.getElementById('add-movie-div');
                 const editMovieDiv = document.getElementById('edit-movie-div');
-
-                movieDetailsDiv.classList.remove('hide');
                 
+                movieDetailsDiv.classList.remove('hide');
                 addMovieDiv.classList.add('hide');
                 landingPageDiv.classList.add('hide');
                 searchResultsDiv.classList.add('hide');
