@@ -103,8 +103,8 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
             const landingPageDiv = document.getElementById('landing-page');
             const searchResultsDiv = document.getElementById('search-results');
             const movieDetailsDiv = document.getElementById('movie-details');
-            const addMovieDiv = document.getElementById('add-movie');
-            const editMovieDiv = document.getElementById('edit-movie');
+            const addMovieDiv = document.getElementById('add-movie-div');
+            const editMovieDiv = document.getElementById('edit-movie-div');
             
             landingPageDiv.classList.remove('hide');
             
