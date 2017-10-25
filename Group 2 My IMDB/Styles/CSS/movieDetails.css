@@ -1,25 +1,66 @@
 #movieDetails-container {
-    display: inline-block;
-    margin-top: 1%;
+    width: 90%;
+    margin: 20px auto;
 }
 
-.details-description p, .registered-options{
-    margin-left: 28%;
+.details-description{
+    width: 80%;
+    margin: 20px auto;
 }
-/* title anchor styling */
-.site-title a{
-    color: #fff;
-}
-/* img */
 
-.details-description img[title="Poster"]{
-    max-width: 25%;
-    float: left;
+/* p[title="Title"]::before{
+    content: "Title: ";
+    color: rgb(141, 51, 73);
+} */
+
+/* p[title="Plot"]::before{
+    content: "Plot: ";
+    margin-right: 100%;
+    color: rgb(141, 51, 73);
+} */
+
+p[title="Director"]::before{
+    content: "Director: ";
+    display: block;
+    text-align: left;
+    color: rgb(141, 51, 73);
 }
+
+p[title="Actors"]::before{
+    content: "Actors: ";
+    display: block;
+    text-align: left;
+    color: rgb(141, 51, 73);
+}
+
+p[title="imdbRating"]::before{
+    content: "IMDB Rating: ";
+    display: block;
+    text-align: left;
+    color: rgb(141, 51, 73);
+}
+
+p[title="Year"]::before{
+    content: "Year: ";
+    display: block;
+    text-align: left;
+    color: rgb(141, 51, 73);
+}
+
+.details-description p {
+    display: block;
+    border: none;
+    width: 100%;
+    margin: 1em auto;
+}
+
+.details-description p:first-child {
+    font-size: 1.2em;
+}
+
 /* edit/delete buttons styles */
 
 .modify-buttons {
-    display: inline-block;
     padding: 4px 12px;
     margin-bottom: 0;
     font-size: 14px;
@@ -41,4 +82,61 @@
     border-bottom-color: #a0302a;
     background-color: #dc5f59;
     background-image: linear-gradient(#dc5f59, #b33630);
+}
+
+
+@media (min-width: 1000px) {
+
+    #movieDetails-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .details-description {
+        display: flex;
+        margin: 15px;
+        flex-direction: column;
+    }
+
+    .details-img {
+        width: 80%;
+        max-width: 450px;
+        min-width: 400px;
+        margin: 0 auto;
+    }
+
+    p[title] {
+        text-align: left;
+    }
+
+    .registered-options {
+        display: flex;
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 999px) and (min-width: 415px){
+    
+        #movieDetails-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .details-description {
+            display: flex;
+            margin: 15px;
+            flex-direction: column;
+        }
+        
+        .details-img {
+            width: 250px;
+        }
+
+        .registered-options {
+            display: flex;
+            align-self: flex-end;
+        }
 }
