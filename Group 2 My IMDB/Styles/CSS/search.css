@@ -59,6 +59,11 @@
     display: none;
 }
 
+/*  genre list selector */
+#genre-list-js:hover{
+    cursor: pointer;
+}
+
 /* Media Queryes */
 
     /* Fullscreen */

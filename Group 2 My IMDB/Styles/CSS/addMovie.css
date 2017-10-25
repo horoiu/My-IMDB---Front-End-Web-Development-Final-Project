@@ -1,5 +1,14 @@
 
-/*form styles*/
+/* add movie button from index */
+#add-movie-btn:hover{
+  cursor: pointer;
+}
+
+/*
+-----------------------------------
+form styles
+-----------------------------------
+*/
 .my-form-css{
   display:flex;
   flex-flow:column wrap;
