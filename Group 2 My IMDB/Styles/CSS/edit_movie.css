@@ -37,3 +37,18 @@ p {
     display: inline-block;
     border: 2px solid black;
 }
+
+/* reset and submit buttons from edit movie */
+
+#reset-edit-btn {
+    border-radius: 50em;
+    background:linear-gradient(#ff4d4d,#ff0000);
+    color: #fff;
+    border-color:#ff4d4d;
+}
+#submit-changes-js {
+    border-radius: 50em;
+    background:linear-gradient(#CDDE1E, #6E9E0C);
+    color: #fff;
+    border-color: #CDDE1E;
+}
