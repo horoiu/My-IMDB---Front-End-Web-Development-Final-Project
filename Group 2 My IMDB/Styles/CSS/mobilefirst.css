@@ -4,6 +4,7 @@
 .site-header{
     background-color: #000;
     color: #fff;
+    padding-bottom: 10px;
 }
 
 .site-branding{
@@ -30,8 +31,8 @@
 */
 
 .site-menu {
-    width: 70%;
-    background-color: #000git;
+    width: 50%;
+    background-color: #000;
 }
 
 
@@ -114,6 +115,14 @@ select,
     background: rgb(36, 31, 31);
 }
 
+/*
+    Page content
+*/
+
+.display-movies {
+    display: flex;
+}
+
 /* 
     footer
 */
@@ -121,20 +130,19 @@ select,
 .site-footer {
     background-color: #000;
     color: #fff;
-    height:140px;
 }
 
 footer > h2{
     color: green;
-    padding: 5px 10px 0;
+    padding: 5px 10px;
     text-align: center;
 }
 
 .classmates {
+    width: 80%;
     margin: 0 auto;
     padding: 0;
     display: flex;
-    width: 800px;
     flex-flow: row wrap;
     justify-content: space-around;
 }
@@ -150,7 +158,7 @@ footer > h2{
 }
 
 .image-footer {
-    width: 40px; 
-    height:40px; 
+    width: 50px; 
+    height:50px; 
     border-radius:50%;
 }
