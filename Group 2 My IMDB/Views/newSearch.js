@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
     
     const deleteMovieBtn = document.getElementById("delete-movie");
     const editMovieBtn = document.getElementById("edit-movie");
-    editMovieBtn.addEventListener("click", editFunction);
+    // editMovieBtn.addEventListener("click", editFunction);
 
     
     // render first 10 movies on landing page or on refresh
@@ -233,10 +233,7 @@ window.addEventListener("load", function() {
     }
     
     
-    function editFunction() {
-        console.log('inside editFunction');
-        //window.open("./editMovie.html?id="+id, "_blank");    // edit movie - temporary
-    }
+
 
     
     

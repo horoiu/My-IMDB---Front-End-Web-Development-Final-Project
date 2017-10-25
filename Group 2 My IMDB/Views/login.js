@@ -96,7 +96,7 @@ window.addEventListener('load', function() {
              
                         // after successfully loggedIn, hide the LogIn & Register button and input fields
                         hideElements();
-                        window.location.reload(true);
+                        //window.location.reload(true);
                     },
                     error: function(response) {
                         console.log('LogIn -ERROR response: ', response);
