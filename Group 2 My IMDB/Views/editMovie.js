@@ -29,7 +29,7 @@ window.addEventListener("load", function() {
         var pArr = document.getElementsByTagName("p");
         var inputArr = document.getElementsByTagName("input");
         /* Rendering all fields but Ratings */
-        for (var i=0;i<pArr.length; i++) {
+        for (var i=1;i<pArr.length; i++) {
             pArr[i].innerHTML = movieObject[pArr[i].title];
         }
         

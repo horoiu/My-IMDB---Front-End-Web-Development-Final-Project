@@ -97,7 +97,7 @@ window.addEventListener('load', function() {
                     showMessage(text);
                     
                     // reload index.html after successefully logginIn
-                    location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+                    location.replace("index.html");
                 },
                 error: function(response) {
                     console.log('LogIn -ERROR response: ', response);

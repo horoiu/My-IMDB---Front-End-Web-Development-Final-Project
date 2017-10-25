@@ -1,4 +1,4 @@
-/* global $ */
+/* global location $ */
 function Changeling () {
 }
 
