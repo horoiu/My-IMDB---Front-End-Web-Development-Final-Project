@@ -6,8 +6,15 @@ window.addEventListener("load", function() {
     searchBtn.addEventListener("click", startSearch);
     searchInput.addEventListener("keydown", inputSearch);
     
+    const deleteMovieBtn = document.getElementById("delete-movie");
+    const editMovieBtn = document.getElementById("edit-movie");
+    editMovieBtn.addEventListener("click", editFunction);
+
+    
     // render first 10 movies on landing page or on refresh
     startSearch();
+    // check the user status (loggedIn or loggedOut) 
+    cookieCheck();
     
     /* start search if user pushes Enter also */
     function inputSearch(event){
@@ -133,8 +140,8 @@ window.addEventListener("load", function() {
                 const landingPageDiv = document.getElementById('landing-page');
                 const searchResultsDiv = document.getElementById('search-results');
                 const movieDetailsDiv = document.getElementById('movie-details');
-                const addMovieDiv = document.getElementById('add-movie');
-                const editMovieDiv = document.getElementById('edit-movie');
+                const addMovieDiv = document.getElementById('add-movie-div');
+                const editMovieDiv = document.getElementById('edit-movie-div');
 
                 movieDetailsDiv.classList.remove('hide');
                 
@@ -147,6 +154,7 @@ window.addEventListener("load", function() {
                 while (searchResultsDiv.hasChildNodes()) {
                     searchResultsDiv.removeChild(searchResultsDiv.lastChild);
                 }
+                cookieCheck();
             } 
         }    
         
@@ -158,8 +166,8 @@ window.addEventListener("load", function() {
         const landingPageDiv = document.getElementById('landing-page');
         const searchResultsDiv = document.getElementById('search-results');
         const movieDetailsDiv = document.getElementById('movie-details');
-        const addMovieDiv = document.getElementById('add-movie');
-        const editMovieDiv = document.getElementById('edit-movie');
+        const addMovieDiv = document.getElementById('add-movie-div');
+        const editMovieDiv = document.getElementById('edit-movie-div');
         searchResultsDiv.classList.remove('hide');
         
         landingPageDiv.classList.add('hide');
@@ -167,6 +175,74 @@ window.addEventListener("load", function() {
         movieDetailsDiv.classList.add('hide');
         editMovieDiv.classList.add('hide');
     } 
+    
+    
+    
+    
+    
+    function cookieCheck() {
+        // if cookie 'accessToken' is empty or undefined, then hideButtons
+        // if cookie 'accessToken' has value, then go to 'Administrator' mode and reveal Edit & Delete buttons
+
+        if (readCookies() ==="" || readCookies() === undefined) {
+            hideButtons();
+        }
+        else { 
+            showButtons;
+        }
+    }
+    
+
+    function readCookies() {
+        // get the cookies string and split them by ';' into a new array
+        let cookiesString = document.cookie;
+        const cookiesArray = cookiesString.split('; ');
+        var cookies = {};
+        
+        // itterate each array element and split them by '='
+        cookiesArray.forEach(function(c) {
+            let cookie = c.split('=');
+            cookies[cookie[0]] = cookie[1];
+        });
+        
+        // assign the 'cookie.accessToken' value to 'accessToken' 
+        let accessToken = cookies.accessToken;
+        
+        // return the accessToken value to 
+        return accessToken;
+    }
+
+
+    function hideButtons() {
+        // add class 'hide' to hide buttons
+        console.log('hide editMovieBtn: ',editMovieBtn);
+        console.log('hide deleteMovieBtn: ',deleteMovieBtn);
+        editMovieBtn.classList.add('hide');
+        deleteMovieBtn.classList.add('hide');
+        return;
+    }
+        
+        
+    function showButtons() {
+        // remove class 'hide' to show hidden form elements
+        console.log('show editMovieBtn: ',editMovieBtn);
+        console.log('show deleteMovieBtn: ',deleteMovieBtn);
+        editMovieBtn.classList.remove('hide');
+        deleteMovieBtn.classList.remove('hide');
+        return;
+    }
+    
+    
+    function editFunction() {
+        console.log('inside editFunction');
+        //window.open("./editMovie.html?id="+id, "_blank");    // edit movie - temporary
+    }
+
+    
+    
+    
+    
+    
 });
 
 
