@@ -3,7 +3,6 @@ function Changeling () {
 }
 
 
-
 Changeling.prototype.submitChanges = function (editedMovie) {
     var root = "https://ancient-caverns-16784.herokuapp.com/movies/" + editedMovie._id;
     //console.log(editedMovie);
@@ -33,6 +32,7 @@ Changeling.prototype.submitChanges = function (editedMovie) {
         });  // end of AJAX call
     });  // end of jQuerry function    
 };
+
 
 function readCookies() {
     let cookiesString = document.cookie;

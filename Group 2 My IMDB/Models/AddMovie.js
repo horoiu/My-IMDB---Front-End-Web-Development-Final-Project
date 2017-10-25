@@ -48,6 +48,7 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
             'x-auth-token':getAccesToken(),
         },
         data:{
+            //_id : newMovie._id,
             Title : newMovie.Title,
             Year : newMovie.Year,
             Rated: newMovie.Rated,
@@ -75,11 +76,18 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
             Website:newMovie.Website
         }
     }).then(function(){
-        console.log("New movie added");
-        renderLandingPage();
+        let text = "New movie added";
+        console.log(text);
+        showMessage(text);
+        // reload index.html after successefully adding a movie
+        location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+        
     }).catch(function(error){
         console.log(error);
-        alert("You need to be authenticated to be able to create a movie");
+        let text = "You need to be authenticated to be able to create a movie";
+        showMessage(text);
+        // reload index.html after getting an error on adding a movie
+        location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
     });
     
     /*read the acces token cookie*/
@@ -96,20 +104,43 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
                
         }
         
-    function renderLandingPage() {
-            //event.preventDefault();
+    // function renderLandingPage() {
+    //         //event.preventDefault();
             
-            const landingPageDiv = document.getElementById('landing-page');
-            const searchResultsDiv = document.getElementById('search-results');
-            const movieDetailsDiv = document.getElementById('movie-details');
-            const addMovieDiv = document.getElementById('add-movie-div');
-            const editMovieDiv = document.getElementById('edit-movie-div');
+    //         const landingPageDiv = document.getElementById('landing-page');
+    //         const searchResultsDiv = document.getElementById('search-results');
+    //         const movieDetailsDiv = document.getElementById('movie-details');
+    //         const addMovieDiv = document.getElementById('add-movie-div');
+    //         const editMovieDiv = document.getElementById('edit-movie-div');
             
-            landingPageDiv.classList.remove('hide');
+    //         landingPageDiv.classList.remove('hide');
             
-            searchResultsDiv.classList.add('hide');
-            addMovieDiv.classList.add('hide');
-            movieDetailsDiv.classList.add('hide');
-            editMovieDiv.classList.add('hide');
-        }
+    //         searchResultsDiv.classList.add('hide');
+    //         addMovieDiv.classList.add('hide');
+    //         movieDetailsDiv.classList.add('hide');
+    //         editMovieDiv.classList.add('hide');
+    //     }
+        
+        
+    function showMessage(text) {
+        const errorDivFull = document.getElementById('error-message-full');
+        const errorDivMini = document.getElementById('error-message-mini');
+        
+         //show the errorMessage DIV and display message
+        errorDivFull.classList.remove('hide');
+        errorDivMini.classList.remove('hide');
+        errorDivFull.innerHTML = text; 
+        errorDivMini.innerHTML = text; 
+        
+        //emtpty HTML message and hide errorMessage DIV
+        setTimeout(function() {
+            errorDivFull.innerHTML = ""; 
+            errorDivMini.innerHTML = ""; 
+            errorDivFull.classList.add('hide');
+            errorDivMini.classList.add('hide');
+        }, 5000);
+    }  
+    
+    
+    
 };

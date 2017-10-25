@@ -16,7 +16,7 @@ DataBase.prototype.getMovies = function(input, selectedGenre){
     }
     /* see documentation for proper GET links, hence the following parameters check and root values*/
     if (input === "" && selectedGenre === "All") {
-        console.log("No specific search parameters. Here's the first 10 movies : ");
+        //console.log("No specific search parameters. Here's the first 10 movies : ");
         root = "https://ancient-caverns-16784.herokuapp.com/movies";
         return $.get(root).then(initDatabase);
     }
@@ -27,7 +27,7 @@ DataBase.prototype.getMovies = function(input, selectedGenre){
            } else {
                root = "https://ancient-caverns-16784.herokuapp.com/movies?Title=" + input;
              }
-    console.log(root);
+    //console.log(root);
     return $.get(root).then(initDatabase);
 };
 

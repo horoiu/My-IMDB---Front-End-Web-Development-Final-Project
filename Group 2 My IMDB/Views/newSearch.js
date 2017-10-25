@@ -63,10 +63,10 @@ window.addEventListener("load", function() {
             
             /* check whether we found or not movies according to search and render them */
             if (resultsArr.length >0) {
-                console.log(resultsArr);
+                //console.log(resultsArr);
                 renderResults(resultsArr);
             } else {
-                console.log("No movies match your search");
+                //console.log("No movies match your search");
                 while (parent.firstChild) {
                     parent.removeChild(parent.firstChild);
                 }
@@ -105,7 +105,7 @@ window.addEventListener("load", function() {
             
             /* *************************************MOVIE DETAILS PART************************************************************************** */
             function goToMovieDetails(e) {
-                console.log('inside goToMovieDetails');
+                //console.log('inside goToMovieDetails');
                 var wantedMovieId = e.target.parentElement.id;
                 renderMovieDetails();
                 var movie = new MovieDetails;
@@ -162,7 +162,7 @@ window.addEventListener("load", function() {
     
     
     function renderSearchResults(e) {
-        console.log('inside renderSearchResults');        
+        //console.log('inside renderSearchResults');        
         const landingPageDiv = document.getElementById('landing-page');
         const searchResultsDiv = document.getElementById('search-results');
         const movieDetailsDiv = document.getElementById('movie-details');
@@ -175,9 +175,6 @@ window.addEventListener("load", function() {
         movieDetailsDiv.classList.add('hide');
         editMovieDiv.classList.add('hide');
     } 
-    
-    
-    
     
     
     function cookieCheck() {
@@ -215,8 +212,8 @@ window.addEventListener("load", function() {
 
     function hideButtons() {
         // add class 'hide' to hide buttons
-        console.log('hide editMovieBtn: ',editMovieBtn);
-        console.log('hide deleteMovieBtn: ',deleteMovieBtn);
+        //console.log('hide editMovieBtn: ',editMovieBtn);
+        //console.log('hide deleteMovieBtn: ',deleteMovieBtn);
         editMovieBtn.classList.add('hide');
         deleteMovieBtn.classList.add('hide');
         return;
@@ -225,8 +222,8 @@ window.addEventListener("load", function() {
         
     function showButtons() {
         // remove class 'hide' to show hidden form elements
-        console.log('show editMovieBtn: ',editMovieBtn);
-        console.log('show deleteMovieBtn: ',deleteMovieBtn);
+        //console.log('show editMovieBtn: ',editMovieBtn);
+        //console.log('show deleteMovieBtn: ',deleteMovieBtn);
         editMovieBtn.classList.remove('hide');
         deleteMovieBtn.classList.remove('hide');
         return;
