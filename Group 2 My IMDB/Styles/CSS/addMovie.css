@@ -29,7 +29,7 @@ h1{
 .my-form-js li{
   display: flex;
   flex-wrap: wrap;
-  align-items:flex-start;
+  align-items:center;
 }
 
 .my-form-js label{
