@@ -25,10 +25,12 @@ window.addEventListener("load", function() {
             e.preventDefault();
         }
         var searchMovie=searchInput.value;
+        
         /* check to see which genre has been selected, if any */
         var genreList = document.getElementById("genre-list-js");
         var selectedGenre = genreList.options[genreList.selectedIndex].text;
         var allMovies = new DataBase();
+        
         /* get the results according to search params : title and/or genre */
         allMovies.getMovies(searchMovie, selectedGenre).then(showResults).catch(function(error){console.log("Data base error: " + error)});
         
@@ -92,15 +94,17 @@ window.addEventListener("load", function() {
                     renderMovie.appendChild(moviePoster);
                     renderMovie.appendChild(movieTitle);
                 }
-               
             }
+            
             /* *************************************MOVIE DETAILS PART************************************************************************** */
             function goToMovieDetails(e) {
+                console.log('inside goToMovieDetails');
                 var wantedMovieId = e.target.parentElement.id;
                 renderMovieDetails();
                 var movie = new MovieDetails;
                 movie.getDetails(wantedMovieId).then(renderMovie);
             }
+            
             
             function renderMovie(response) {
                     var movieObject = response.reqMovie;
@@ -122,24 +126,27 @@ window.addEventListener("load", function() {
                             elements[i].innerHTML += movieObject[elements[i].title];
                         }
                     }
-                  
                 } // end of renderMovie function
     
    
-            
             function renderMovieDetails() {
                 const landingPageDiv = document.getElementById('landing-page');
                 const searchResultsDiv = document.getElementById('search-results');
                 const movieDetailsDiv = document.getElementById('movie-details');
                 const addMovieDiv = document.getElementById('add-movie');
                 const editMovieDiv = document.getElementById('edit-movie');
-                
+
                 movieDetailsDiv.classList.remove('hide');
                 
                 addMovieDiv.classList.add('hide');
                 landingPageDiv.classList.add('hide');
                 searchResultsDiv.classList.add('hide');
                 editMovieDiv.classList.add('hide');
+                
+                // delete all movies from search-results DIV when displaying movieDetails
+                while (searchResultsDiv.hasChildNodes()) {
+                    searchResultsDiv.removeChild(searchResultsDiv.lastChild);
+                }
             } 
         }    
         
