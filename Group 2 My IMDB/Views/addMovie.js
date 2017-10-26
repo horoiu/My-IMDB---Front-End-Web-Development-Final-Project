@@ -41,7 +41,7 @@ window.addEventListener("load", function() {
         }
         else{
             newMovie.postNewMovie(newMovie);
-            message.innerHTML = "New movie added!";
+         //  message.innerHTML = "New movie added!";
             message.style.backgroundColor = "#7FFFD4";
         }
    }
@@ -62,8 +62,8 @@ window.addEventListener("load", function() {
        newMovie.Country = document.querySelector(".country").value;
        newMovie.Awards = document.querySelector(".awards").value;
        newMovie.Poster = document.querySelector(".poster").value;
-       newMovie.Source = document.querySelector(".source").value;
-       newMovie.Value = document.querySelector(".value").value;
+    //   newMovie.Source = document.querySelector(".source").value;
+    //   newMovie.Value = document.querySelector(".value").value;
        newMovie.Metascore = document.querySelector(".metascore").value;
        newMovie.imdbRating = document.querySelector(".imdbRating").value;
        newMovie.imdbVotes = document.querySelector(".imdbVotes").value;
