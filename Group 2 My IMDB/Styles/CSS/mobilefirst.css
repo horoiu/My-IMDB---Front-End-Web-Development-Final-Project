@@ -162,3 +162,12 @@ footer > h2{
     height:50px; 
     border-radius:50%;
 }
+
+
+@media (max-width: 415px){
+
+    p.site-description {
+        display: none;
+    }
+
+}
