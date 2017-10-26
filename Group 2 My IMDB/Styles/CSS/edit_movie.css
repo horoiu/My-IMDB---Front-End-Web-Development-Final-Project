@@ -18,6 +18,7 @@ p {
     border: 1px solid black;
     width: 200px;
     text-align: center;
+    overflow-wrap:break-word;
 }
 .edit-btn-js {
     margin-left: 1%;
