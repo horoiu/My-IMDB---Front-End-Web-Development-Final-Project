@@ -22,7 +22,9 @@ Changeling.prototype.submitChanges = function (editedMovie) {
                 let text = "Your edit has been saved !!!";
                 showMessage(text);
                 // reload index.html after moviDetails was successefully edited
-                location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+                // location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+                location.replace("https://rawgit.com/horoiu/My-IMDB--Final-Project/master/Pages/index.html");
+                
             },
             error : function(response) {
                 console.log("Edit movie error - ", response);

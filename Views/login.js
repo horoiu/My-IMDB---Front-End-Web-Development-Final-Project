@@ -140,7 +140,7 @@ window.addEventListener('load', function() {
                     showMessage(text);
                     
                     // reload index.html after successefully logginOut
-                    location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+                    location.replace("https://rawgit.com/horoiu/My-IMDB--Final-Project/master/Pages/index.html");
 
                 },
                 error: function(response) {
@@ -184,7 +184,7 @@ window.addEventListener('load', function() {
                     showMessage(text);
                     
                     // reload index.html after successfull Registration
-                    location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+                    location.replace("https://rawgit.com/horoiu/My-IMDB--Final-Project/master/Pages/index.html");
                 },
                 
                 error: function(response) {

@@ -79,7 +79,8 @@ window.addEventListener("load", function() {
             errorDivFull.classList.add('hide');
             errorDivMini.classList.add('hide');
              // reload index.html
-            location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+            // location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+            location.replace("https://rawgit.com/horoiu/My-IMDB--Final-Project/master/Pages/index.html");            
                 
         }, 5000);
     }  

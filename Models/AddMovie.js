@@ -80,14 +80,16 @@ Movie.prototype.postNewMovie = function(newMovie,accTokenCookie){
         console.log(text);
         showMessage(text);
         // reload index.html after successefully adding a movie
-        location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+        // location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+        location.replace("https://rawgit.com/horoiu/My-IMDB--Final-Project/master/Pages/index.html");
+        
         
     }).catch(function(error){
         console.log(error);
         let text = "You need to be authenticated to be able to create a movie";
         showMessage(text);
         // reload index.html after getting an error on adding a movie
-        location.replace("https://preview.c9users.io/horoiu/homework1/Homework's/11-Team-Project-IMDB/scola-informala-imdb/Group%202%20My%20IMDB/Pages/index.html");
+        location.replace("https://rawgit.com/horoiu/My-IMDB--Final-Project/master/Pages/index.html");
     });
     
     /*read the acces token cookie*/
